@@ -1,0 +1,47 @@
+tasks to do
+
+create database named db_ttms
+then create tables;
+tbl_user
+tbl_package
+tbl_booking
+
+
+signup.html backend
+-receive input then store to database 
+-check formatting of email if correct
+-check if username already exists
+
+signin.html backend
+-receive input then checks if the credential matches to the database, 
+then redirects to the main dashboard and adds/removes features depending 
+on user level(client, employee, admin)
+-if there is password and username mismatch, display alert message 
+-if there is no userfound, display alert message
+
+index.html frontend and backend
+frontend
+-fix the column and the redirects
+-note the items inside the main page content, prepare to display package details from backend
+
+backend
+-display username of the person logged in and their user level
+
+priority list
+index.html
+-see frontend details above
+
+client.html(user management)
+-create a table for displaying the list of clients and their details
+
+staff.html(user management)
+-create a table for displaying the list of all the staff and their details
+
+booking.html(booking management)
+-create a form for booking asking details that are based on the context diagram
+
+bookinfo.html(booking information)
+-create a list of booked itineraries for the client
+
+bookhist.html(itinerary history)
+-create a table of all the booked itineraries for the admin and employee
