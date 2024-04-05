@@ -30,24 +30,24 @@ backend
 priority list
 make sure to add dummy records as well for all management and index
 
-index.html
+index.html Ronald
 -see frontend details above
 
-client.html(user management)
+client.html(user management) Janna
 -create a table for displaying the list of clients and their details
 
-staff.html(user management)
+staff.html(user management) Humphrey
 -create a table for displaying the list of all the staff and their details
 
-package.html(package management)
+package.html(package management) Adriel
 -create a similar UI for index.html but add buttons(edit, delete) for each existing package
 -make sure to create another button "Add package"
 
-booking.html(booking management)
+booking.html(booking management) Ronald
 -create a form for booking asking details that are based on the context diagram
 
-bookinfo.html(booking information)
--create a list of booked itineraries for the client
+bookinfo.html(booking information)  Maverick
+-create a list of booked itineraries for the client only
 
-bookhist.html(itinerary history)
+bookhist.html(itinerary history) Maverick
 -create a table of all the booked itineraries for the admin and employee
