@@ -28,6 +28,8 @@ backend
 -display username of the person logged in and their user level
 
 priority list
+make sure to add dummy records as well for all management and index
+
 index.html
 -see frontend details above
 
@@ -36,6 +38,10 @@ client.html(user management)
 
 staff.html(user management)
 -create a table for displaying the list of all the staff and their details
+
+package.html(package management)
+-create a similar UI for index.html but add buttons(edit, delete) for each existing package
+-make sure to create another button "Add package"
 
 booking.html(booking management)
 -create a form for booking asking details that are based on the context diagram
