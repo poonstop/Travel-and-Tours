@@ -60,8 +60,6 @@
     font-weight: normal;
     border-radius: 50px;
 }
-
-
 /*** Layout ***/
 .sidebar {
     position: fixed;
@@ -207,7 +205,10 @@
 .content .navbar .dropdown-item.active {
     background: var(--dark);
 }
-
+.package {
+    max-width: 100%;
+    height: auto;
+}
 .content .navbar .dropdown-toggle::after {
     margin-left: 6px;
     vertical-align: middle;
