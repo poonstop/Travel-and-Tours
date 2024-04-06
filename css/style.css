@@ -205,7 +205,7 @@
 .content .navbar .dropdown-item.active {
     background: var(--dark);
 }
-/*custom CSS*/
+/*custom CSS- frontenders will work here*/
 .package-container-wrapper {
     overflow-x: auto; 
     white-space: nowrap; 
