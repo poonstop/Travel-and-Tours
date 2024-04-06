@@ -66,7 +66,7 @@
     top: 0;
     left: 0;
     bottom: 0;
-    width: 300px;
+    width: 250px;
     height: 100vh;
     overflow-y: auto;
     background: var(--secondary);
@@ -118,7 +118,7 @@
 
 /*** Navbar ***/
 .sidebar .navbar .navbar-nav .nav-link {
-    padding: 7px 20px;
+    padding: 7px 5px;
     color: var(--light);
     font-weight: 500;
     border-left: 3px solid var(--secondary);
@@ -134,8 +134,8 @@
 }
 
 .sidebar .navbar .navbar-nav .nav-link i {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -205,10 +205,96 @@
 .content .navbar .dropdown-item.active {
     background: var(--dark);
 }
-.package {
-    max-width: 100%;
-    height: auto;
+/*custom CSS*/
+.package-container-wrapper {
+    overflow-x: auto; 
+    white-space: nowrap; 
 }
+.package-container {
+    display: inline-block;
+    
+}
+
+.package-card {
+    position: relative; 
+    border-radius: 10px;
+    background-color: #191C24;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 20px; 
+    margin-right: 20px;
+    width: calc((100vw - 40px) / 4); 
+    height: calc(100vw - 40px); 
+    max-width: 300px;
+    max-height: 800px; 
+    background-size: cover; 
+    background-position: center; 
+    display: inline-block;
+    background-size: cover; 
+    vertical-align: top;
+    
+}
+
+.package-card .row {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.package-card .row:last-child {
+    margin-bottom: 0;
+}
+
+.package-card .title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #f2f2ed;
+    background-color: #08510e;
+    padding: 5px; 
+    margin-left: -20px;
+    margin-right: -20px; 
+    
+    border-top-right-radius: 10px; 
+    border-bottom-left-radius: 10px; 
+}
+
+.package-card .description {
+    font-size: 14px;
+    color: #f2f2ed;
+    background-color: #08510e;
+    padding: 5px;
+    margin-left: -20px; 
+    margin-right: -20px;
+    
+    border-top-right-radius: 10px; 
+    border-bottom-left-radius: 10px;
+}
+
+.package-card .button {
+    position: absolute; 
+    bottom: 10px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: inline-block;
+    text-align: center;
+    width: 250px;
+    padding: 10px 20px;
+    background-color: #EB1616;
+    color: #f2f2ed;
+    font-weight: 900;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.package-card .button:hover {
+    color: #EB1616;
+    background-color: #000000;
+}
+
+/*end of custom css*/
 .content .navbar .dropdown-toggle::after {
     margin-left: 6px;
     vertical-align: middle;
@@ -228,7 +314,6 @@
         margin-left: 15px;
     }
 }
-
 
 /*** Date Picker ***/
 .bootstrap-datetimepicker-widget.bottom {

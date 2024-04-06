@@ -30,9 +30,6 @@ backend
 priority list
 make sure to add dummy records as well for all management and index
 
-index.html Ronald
--see frontend details above
-
 client.html(user management) Janna
 -create a table for displaying the list of clients and their details
 
