@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>DarkPan - Bootstrap 5 Admin Template</title>
+    <title>Admin Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -41,13 +41,17 @@
         </div>
         <!-- Spinner End -->
 
-
-      <!-- Sidebar Start -->
+    <!-- Sidebar Start -->
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-secondary navbar-dark">
-            <div class="navbar-brand mx-4 mb-3">       
-                <img class="logo-small" src="img/logo.jpg" alt="">
-            </div>
+            <a href="index.html" class="navbar-brand mx-4 mb-3">
+                
+                <h3 class="text-primary">
+                    <i class="fa fa-user-edit me-2"></i>
+                    Reinjan 
+                    <h5>Travel and Tours</h5>
+                </h3>
+            </a>
             <div class="d-flex align-items-center ms-4 mb-4">
                 <div class="position-relative">
                     <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
@@ -61,27 +65,10 @@
             </div>
             <div class="navbar-nav w-100">
                 <!--Booking-->
-                <a href="admin.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
-                <!--User Management-->
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>User Management</a>
-                    <div class="dropdown-menu bg-transparent border-0 show">
-                        <a href="staff.html" class="dropdown-item">Staff</a>
-                        <a href="client.html" class="dropdown-item active">Client</a>
-                    </div>
-                </div>
-                <!--Travel package management-->
-                <a href="package.html" class="nav-item nav-link">
-                    <i class="fa fa-th me-2"></i>
-                    Package Management</a>
-                <!--Reports-->
-                <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
-                    <div class="dropdown-menu bg-transparent border-0">
-                        <a href="bookinfolist.html" class="dropdown-item">Booking history</a>
-                        <a href="itineraryreport.html" class="dropdown-item">Itinerary Reports</a> 
-                    </div>
-                </div>
+                <a href="clientdash.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
+                 <!--Booking history-->
+                 <a href="" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
+        
             </div>
         </nav>
     </div>
@@ -97,9 +84,7 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-                </form>
+            
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -172,98 +157,111 @@
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="nouser.html" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
 
-
-            <!-- table container -->
+            <!-- Display packages here -->
             <div class="container-fluid pt-4 px-4">
-                <div class="col-sm-12 col-xl-10 mx-auto w-100 ">
-                    <div class="bg-secondary rounded h-100 p-4 border border-danger">
-                        <h6 class="mb-4">Client Information</h6>
-                        <!--table-->
-                        <div class="table-responsive">
-                            <table class="table text-start align-middle table-bordered table-hover mb-0">
-                                <thead>
-                                    <tr class="text-white">
-                                       
-                                        <th scope="col">Username</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col 2">Middle Name</th>
-                                        <th scope="col">Password</th>
-                                        <th scope="col">Email Address</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <!--pull data from database to here-->
-                                    <tr>
-                                        
-                                        <td>JohnyDoe</td>
-                                        <td>Doe</td>
-                                        <td>John</td>
-                                        <td>D.</td>
-                                        <td>JohnDoe2024</td>
-                                        <td>john@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-success m-2">Edit</button>
-                                            <button type="button" class="btn btn-sm btn-danger m-2">Delete</button>
-                                        </td>
-                                       
-                                    </tr> 
-                                    <tr>
-    
-                                        <td>JaneyDoe</td>
-                                        <td>Doe</td>
-                                        <td>Jane</td>
-                                        <td>D.</td>
-                                        <td>JaneDoe2023</td>
-                                        <td>jane@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-success m-2">Edit</button>
-                                            <button type="button" class="btn btn-sm btn-danger m-2">Delete</button>
-                                        </td>
-                                    </tr> 
-                                   
-                                    <tr>
-                                        
-                                        <td>WeepingLady</td>
-                                        <td>Llorona</td>
-                                        <td>Maria</td>
-                                        <td>L.</td>
-                                        <td>Llorona234</td>
-                                        <td>maria@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-success m-2">Edit</button>
-                                            <button type="button" class="btn btn-sm btn-danger m-2">Delete</button>
-                                        </td>
-                                    </tr> 
-    
-                                    <tr>
-    
-                                        <td>Corazon</td>
-                                        <td>Donquixote</td>
-                                        <td>Rosinante</td>
-                                        <td>D.</td>
-                                        <td>Corazon2024</td>
-                                        <td>dressrosa@gmail.com</td>
-                                        <td>
-                                            <button type="button" class="btn btn-sm btn-success m-2">Edit</button>
-                                            <button type="button" class="btn btn-sm btn-danger m-2">Delete</button>
-                                        </td>
-                                    </tr> 
-                                </tbody>
-                            </table>
-                    </div>
+                <div class="package-container-wrapper">
+                    <!--this is where to insert the package cards-->
+                    <div class="package-container">
+                       
+                       <div class="package-card" style="background-image: url('img/osaka.jpg')">
+                            <!--This can be used to display travel package-->  
+                            <!--package title and description-->
+                            <div class="row">
+                                <div class="title">
+                                    <p>Charming Japan</p>
+                                </div>
+                                <div class="description">
+                                    <p class="mb-2">Tokyo || Mount Fuji || Osaka</p>
+                                </div>
+                            </div>
+                             <!--button redirect goes here-->
+                           
+                            <div class="row">
+                                <a href="booking.html" class="button">Book Now</a>
+                            </div>   
+                        </div> 
+
+                        <div class="package-card" style="background-image: url('img/SalamancaCathedral.jpg')">
+                            <!--This can be used to display travel package-->  
+                            <!--package title and description-->
+                            <div class="row">
+                                <div class="title">
+                                    <p>Memento Europa</p>
+                                </div>
+                                <div class="description">
+                                    <p class="mb-2">Portugal || Spain || Andora || Paris</p>
+                                </div>
+                            </div>
+                             <!--Image goes here-->
+                           
+                            <div class="row">
+                                <a href="#" class="button">Book Now</a>
+                            </div>   
+                        </div> 
+                        <div class="package-card" style="background-image: url('img/hokkaido.jpg')">
+                            <!--This can be used to display travel package-->  
+                            <!--package title and description-->
+                            <div class="row">
+                                <div class="title">
+                                    <p>7D4N Hokkaido</p>
+                                </div>
+                                <div class="description">
+                                    <p class="mb-2">Tokyo || Hokkaido</p>
+                                </div>
+                            </div>
+                             <!--Image goes here-->
+                           
+                            <div class="row">
+                                <a href="#" class="button">Book Now</a>
+                            </div>   
+                        </div> 
+
+                        <div class="package-card" style="background-image: url('img/mtfuji.jpg')">
+                            <!--This can be used to display travel package-->  
+                            <!--package title and description-->
+                            <div class="row">
+                                <div class="title">
+                                    <p>6D5N Tour Japan</p>
+                                </div>
+                                <div class="description">
+                                    <p class="mb-2">Tokyo || Mount Fuji || Osaka || USJ</p>
+                                </div>
+                            </div>
+                             <!--Image goes here-->
+                           
+                            <div class="row">
+                                <a href="#" class="button">Book Now</a>
+                            </div>   
+                        </div> 
+                        <div class="package-card" style="background-image: url('img/osaka.jpg')">
+                            <div class="row">
+                                <div class="title">
+                                    <p>Charming Japan</p>
+                                </div>
+                                <div class="description">
+                                    <p class="mb-2">Tokyo || Mount Fuji || Osaka</p>
+                                </div>
+                            </div>
+                             <!--Image goes here-->
+                           
+                            <div class="row">
+                                <a href="#" class="button">Book Now</a>
+                            </div>   
+                        </div> 
+                    </div>  
                 </div>
             </div>
-           
-            <!-- Footer Start 
+            <!-- packages End -->
+
+
+            <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
@@ -271,13 +269,14 @@
                             &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                             Designed By <a href="https://htmlcodex.com">HTML Codex</a>
                             <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
                         </div>
                     </div>
                 </div>
             </div>
-           Footer End -->
+            <!-- Footer End -->
         </div>
         <!-- Content End -->
 
