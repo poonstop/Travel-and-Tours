@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Booking Form</title>
+<style>
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"], select, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    input[type="checkbox"] {
+        margin-top: 10px;
+    }
+    #specialRequest {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    #specialRequest[readonly] {
+        background-color: #f4f4f4;
+    }
+</style>
+</head>
+<body>
+
+<h2>Booking Form</h2>
+<form action="#" method="post">
+    <label for="bookingID">Booking ID:</label>
+    <input type="text" id="bookingID" name="bookingID" readonly>
+
+    <label for="passportNumber">Passport Number:</label>
+    <input type="text" id="passportNumber" name="passportNumber">
+
+    <label for="firstName">First Name:</label>
+    <input type="text" id="firstName" name="firstName">
+
+    <label for="lastName">Last Name:</label>
+    <input type="text" id="lastName" name="lastName">
+
+    <label for="flight">Flight:</label>
+    <select id="flight" name="flight">
+        <option value="flight1">Flight 1</option>
+        <option value="flight2">Flight 2</option>
+        <option value="flight3">Flight 3</option>
+    </select>
+
+    <label for="adultHeadcount">Adult Headcount:</label>
+    <input type="number" id="adultHeadcount" name="adultHeadcount" min="1" value="1">
+
+    <label for="childHeadcount">Child Headcount:</label>
+    <input type="number" id="childHeadcount" name="childHeadcount" min="0" value="0">
+
+    <input type="checkbox" id="specialRequestCheckbox" name="specialRequestCheckbox">
+    <label for="specialRequestCheckbox">Special Request</label>
+    <textarea id="specialRequest" name="specialRequest" placeholder="Enter special request" readonly></textarea>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    document.getElementById("specialRequestCheckbox").addEventListener("change", function() {
+        var specialRequestField = document.getElementById("specialRequest");
+        specialRequestField.disabled = !this.checked;
+        if (!this.checked) {
+            specialRequestField.value = "";
+        }
+    });
+</script>
+</body>
+</html>

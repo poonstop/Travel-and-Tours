@@ -179,95 +179,205 @@
             
             <div class="container-fluid pt-4 px-4">
                 <!--create custom class for container-->
-                <div class="row vh-100 bg-secondary rounded mx-0">
-                   <!--form goes here-->
-                   <div class="col-sm-12 col-xl-6">
-                    <div class="bg-secondary rounded h-100 p-4">
-                        <h6 class="mb-4">Booking Form</h6>
+                <div class="booking-container"> 
+                        <!--package information goes here, all info is from tbl_package-->
+                    
+                        <div class="col-sm-6 col-xl-6">
+                            <div class="bg-secondary rounded h-100 p-4 mr-3">
+                                <h4>Package Information</h4>
+                                <div class="info-container">
+                                    <!--values retrieved from tbl_package-->
+                                    <div class="bg-dark rounded w-50 p-4 mr-3">
+                                        <div class="form-floating mb-3">    
+                                            <input type="email" class="form-control" id="floatingInput"  placeholder="" value="𝗨𝗦𝗗 𝟭𝟬𝟴𝟴/𝗣𝗔𝗫" disabled>
+                                            <label for="floatingInput">Adult & Child with bed: </label>
+                                        </div>
+                                    
+                                        <div class="form-floating mb-3">
+                                            <input type="email" class="form-control" id="floatingInput"  placeholder="" value="𝗨𝗦𝗗 𝟵𝟯𝟴/𝗣𝗔𝗫" disabled>
+                                            <label for="floatingInput">Child without bed (2-5yrs old): </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    𝗧𝗥𝗔𝗩𝗘𝗟 𝗗𝗔𝗧𝗘𝗦:
+                                    JUL 24-29
+                                    AUG 28-SEP 02
+                                    SEP 25-30
+                                    OCT 16-21
+                                    OCT 30-NOV 04
+                                    OCT 31-NOV05
+                                    NOV 20-25 
+                                    NOV 27-DEC 02 
+                                    DEC 11-16
+                                    DEC 25-30
+                                    𝗜𝗡𝗖𝗟𝗨𝗦𝗜𝗢𝗡𝗦:
+                                    - 5 nights’ room accommodation with daily hotel breakfast base on twin sharing. 
+                                    - Sightseeing tours as specified above include all entrance fee needed.
+                                    - Private coach with English speaking tour guide. 
+                                    - Meals as listed. 
+                                    - Round trip airfare via Cebu pacific with 7KG Hand Carry. 
+                                    𝗘𝗫𝗖𝗟𝗨𝗦𝗜𝗢𝗡𝗦:
+                                    - Expenses of a personal nature like telephone calls, mini bar, etc. 
+                                    - Tips for driver & guide: USD35/PAX. (Collected with tour fee) 
+                                    - Philippines travel tax: PHP1620/PAX. 
+                                    - Single supplement
+                                    - Travel insurance. 
+                                    - Covid related procedures. 
+                                    - Extra baggage allowance. 
+                                    - Checked Baggage allowance. 
+                                    - Japan visa. 
+                                    𝗜𝗧𝗜𝗡𝗘𝗥𝗔𝗥𝗬:
+                                    DAY 1 MANILA-TOKYO 
+                                    - Arrive Tokyo, meet the tour guide at Narita International Airport
+                                    -Transfer to hotel and check in. 
+                                    - Hotel: 4* Hotel or similar
+                                    DAY 2 TOKYO 
+                                    - Hotel breakfast. 
+                                    - Visit Asakusa Temple. 
+                                    - Visit Sky tree (Photo stop). 
+                                    - Visit Shibuya Crossing, Hachiko statue. 
+                                    -Transfer to hotel and check in. 
+                                    - Hotel: 3.5* Hotel or similar
+                                    DAY 3 TOKYO 
+                                    - Hotel breakfast. 
+                                    - Free and easy day. (Without tour guide and transfer)
+                                    Optional tour 1: Visit Disneyland (include one day pass ticket, transfer), Surcharge USD 119/PAX (Minimum of 10 PAX push through)
+                                    Optional tour 2: Kotoku-in Temple & Enoshima One Day Tour from Tokyo (include transfer, tour guide) Surcharge USD 79/PAX (Minimum of 10 PAX push through)
+                                    - Hotel: 3.5* Hotel or similar
+                                    DAY 4 TOKYO-MT.FUJI-HAMAMATSU 
+                                    - Hotel breakfast. 
+                                    - Visit Lake Kawaguchi. 
+                                    - Oshino Hakkai.
+                                    - Free time for shopping in Gotemba Premium Outlets. 
+                                    - Transfer to hotel and check in. 
+                                    - Hotel: 4* Hotel or similar
+                                    DAY 5 HAMAMATSU-KYOTO-NARA-OSAKA 
+                                    - Hotel breakfast. 
+                                    - Visit Jewelry duty free shop. 
+                                    - Visit Fushimi Inari-taisha. 
+                                    - Visit Nara park. 
+                                    - Transfer to hotel and check in, Enjoy shopping time at Shinsaibashi, Dotonbori by yourself. 
+                                    - Hotel: 3* Hotel or similar
+                                    DAY 6 OSAKA-MANILA 
+                                    - Hotel breakfast. 
+                                    - Visit Osaka Castle (photo stop). 
+                                    - Visit Cosmeceuticals duty free Shop. 
+                                    - Free shopping at Rinku Premium Outlets.
+                                    - Transfer to airport take the flight for departure. 
+                                </p>
+                            </div>                                                         
+                        </div>
+                        <div class="divider">
 
-                        <div class="form-floating mb-3">
-                            <!--insert booking reference(packageID) here retrieved from the database-->
-                            <input type="email" class="form-control" id="floatingInput"  placeholder="">
-                            <label for="floatingInput">Booking reference</label>
-                        </div>
-                        <!--insert passport number-->
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"  placeholder="">
-                            <label for="floatingInput">Passport Number</label>
-                        </div>
-                        <!--For these fields, you can automatically pull data from the database for convenience-->
-                         <!--First Name-->
-                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"  placeholder="">
-                            <label for="floatingInput">First Name</label>
-                        </div>
-                         <!--Last Name-->
-                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"  placeholder="" value="Smith">
-                            <label for="floatingInput">Last Name</label>
-                        </div>
-                         <!--Mid Name-->
-                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"  placeholder="">
-                            <label for="floatingInput">First Name</label>
-                        </div>
-                         <!--Last Name-->
-                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"  placeholder="" value="Smith">
-                            <label for="floatingInput">Last Name</label>
-                        </div>
-                         <!--First Name-->
-                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"  placeholder="">
-                            <label for="floatingInput">First Name</label>
-                        </div>
-                         <!--Last Name-->
-                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput"  placeholder="" value="Smith">
-                            <label for="floatingInput">Last Name</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <!--insert booking reference(packageID) here retrieved from the database-->
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Booking reference</label>
-                        </div>
-                        <!--insert passport number-->
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Passport Number</label>
-                        </div>
-                         <!--First Name-->
-                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Passport Number</label>
-                        </div>
-                         <!--Last Name-->
-                         <div class="form-floating mb-3">
-                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                            <label for="floatingInput">Passport Number</label>
-                        </div>
-                        <div class="form-floating mb-3">
-                            <select class="form-select" id="floatingSelect"
-                                aria-label="Floating label select example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
-                            <label for="floatingSelect">Works with selects</label>
-                        </div>
-                        <div class="form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here"
-                                id="floatingTextarea" style="height: 150px;"></textarea>
-                            <label for="floatingTextarea">Comments</label>
-                        </div>
-                    </div>
+                        </div>                             
+                        <!--form goes here-->
+                        <div class="col-sm-12 col-xl-6">
+                             <div class="bg-secondary rounded h-100 p-4">
+                                 <h6 class="mb-4">Booking Form</h6>
+                                 <div class="form-floating mb-3">
+                                     <!--insert booking reference(packageID) here retrieved from the database-->
+                                     <input type="email" class="form-control" id="bookingID"  placeholder="" value="00000001" disabled>
+                                     <label for="floatingInput">Booking reference</label>
+                                 </div>
+                                 <!--insert passport number-->
+                                 <div class="form-floating mb-3">
+                                     <input type="email" class="form-control" id="passNo"  placeholder="">
+                                     <label for="floatingInput">Passport Number</label>
+                                 </div>
+                                 <!--For these fields, you can automatically pull data from the database for convenience-->
+                                 <div class="container-col">
+                                     <!--First Name-->
+                                     <div class="column">  
+                                         <div class="form-floating mb-3">
+                                             <input type="email" class="form-control" id="fName  placeholder="">
+                                             <label for="floatingInput">First Name</label>
+                                         </div>
+                                     </div>
+                                 
+                                     <!--Last Name-->
+                                     <div class="column"> 
+                                         <div class="form-floating mb-3">
+                                             <input type="email" class="form-control" id="Lname"  placeholder="" value="Smith">
+                                             <label for="floatingInput">Last Name</label>
+                                         </div>
+                                     </div>
+                                     <!--Mid Name-->
+                                     <div class="column"> 
+                                         <div class="form-floating mb-3">
+                                             <input type="email" class="form-control" id="floatingInput"  placeholder="">
+                                             <label for="floatingInput">Middle Name</label>
+                                         </div>
+                                     </div>
+                                 </div> 
+                                 <div class="form-floating mb-3">
+                                     <select class="form-select" id="floatingSelect"
+                                         aria-label="Floating label select example">
+                                         <option selected>Select Available Flights</option>
+                                         <option value="1">One</option>
+                                         <option value="2">Two</option>
+                                         <option value="3">Three</option>
+                                     </select>
+                                     <label for="floatingSelect">Flight</label>
+                                 </div>
+                                 <div class="container-col">
+                                     <div class="column">
+                                         <div class="form-floating mb-3">
+                                             <select class="form-select" id="floatingSelect"
+                                                 aria-label="Floating label select example">
+                                                 <option selected>Select how many</option>
+                                                 <option value="1">One</option>
+                                                 <option value="2">Two</option>
+                                                 <option value="3">Three</option>
+                                             </select>
+                                             <label for="floatingSelect">Adult head count</label>
+                                         </div>
+                                     </div>
+                                     <div class="column">
+                                         <div class="form-floating mb-3">
+                                             <select class="form-select" id="floatingSelect"
+                                                 aria-label="Floating label select example">
+                                                 <option selected>Select how many</option>
+                                                 <option value="0">None</option>
+                                                 <option value="1">One</option>
+                                                 <option value="2">Two</option>
+                                                 <option value="3">Three</option>
+                                             </select>
+                                             <label for="floatingSelect">Child head count</label>
+                                         </div>
+                                     </div>
+                                 </div>
+     
+                                  <br>
+                                 <!--create script to disable the requests input if this checkbox is ticked-->
+                                 <div class="form-check">
+                                     <input class="form-check-input" type="checkbox" value="" id="checkrequest">
+                                     <label class="form-check-label" for="checkrequest">
+                                         Special request?
+                                     </label>
+                                     <p style= "font-size: 14px; font-style:italic;">*Note: requests can only be accepted if it is stated in the inclusions</p>
+                                 </div>
+                                 
+                                 <div class="form-floating">
+                                     <textarea class="form-control" placeholder="Leave a comment here"
+                                         id="request" style="height: 150px;"></textarea>
+                                     <label for="request">Special Request</label>
+                                 </div>
+                                 <br>
+                                 
+                                <div class="button-strip">
+                                    <button class="btn btn-warning m-2" id="clearBtn">Clear</button>
+                                    <button class="btn w-25 btn-success m-2" >Enter</button>
+                                </div>
+                             </div>
+                         </div>
                 </div>
-                   
-                </div>
+                
             </div>
-    
-
+            <br>
+            <br>
+            <br>
+            <br>
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
@@ -302,9 +412,19 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+
+    <script>
+        document.getElementById("checkrequest").addEventListener("change", function() {
+            var requestField = document.getElementById("request");
+            requestField.disabled = !this.checked;
+            if (!this.checked) {
+                requestField.disabled = true;
+            }
+        });
+    </script>
+    
 </body>
 
 </html>
