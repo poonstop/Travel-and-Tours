@@ -44,9 +44,9 @@
     <!-- Sidebar Start -->
     <div class="sidebar pe-4 pb-3">
         <nav class="navbar bg-secondary navbar-dark">
-            <a href="index.html" class="navbar-brand mx-4 mb-3">
-                <h3 class="text-primary"><i class="fa fa-user-edit me-2"></i>Reinjan Travel and Tours</h3>
-            </a>
+            <div class="navbar-brand mx-4 mb-3">       
+                <img class="logo-small" src="img/logo.jpg" alt="">
+            </div>
             <div class="d-flex align-items-center ms-4 mb-4">
                 <div class="position-relative">
                     <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
@@ -94,9 +94,7 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-                </form>
+                <h2 class="text-primary m-2">Reinjan Travel and Tours</h3>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -182,7 +180,7 @@
                 <div class="booking-container"> 
                         <!--package information goes here, all info is from tbl_package-->
                     <div class="col-md-8">
-                        
+
                             <div class="bg-secondary rounded h-100 p-4 mr-3">
                                 <h5>Package Information</h5>
                                 <div class="info-container">
@@ -201,75 +199,7 @@
                                             </div>
                                         </div>
                                         <br>
-                                        <div class="bg-dark rounded  p-4">
-                                            <h6>INCLUSIONS</h6>
-                                            - 5 nights’ room accommodation with daily hotel breakfast base on twin sharing. 
-                                            - Sightseeing tours as specified above include all entrance fee needed.
-                                            - Private coach with English speaking tour guide. 
-                                            - Meals as listed. 
-                                            - Round trip airfare via Cebu pacific with 7KG Hand Carry. 
-                                        </div>
-                                        <br>
-                                        <div class="bg-dark rounded  p-4">
-                                            <h6>EXCLUSIONS</h6>
-                                            - Expenses of a personal nature like telephone calls, mini bar, etc. 
-                                            - Tips for driver & guide: USD35/PAX. (Collected with tour fee) 
-                                            - Philippines travel tax: PHP1620/PAX. 
-                                            - Single supplement
-                                            - Travel insurance. 
-                                            - Covid related procedures. 
-                                            - Extra baggage allowance. 
-                                            - Checked Baggage allowance. 
-                                            - Japan visa. 
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6 mr-3">
-                                        <div class="bg-dark rounded  p-4">
-                                           
-                                            <p>                                    
-                
-                                        𝗜𝗧𝗜𝗡𝗘𝗥𝗔𝗥𝗬:
-                                        DAY 1 MANILA-TOKYO 
-                                        - Arrive Tokyo, meet the tour guide at Narita International Airport
-                                            -Transfer to hotel and check in. 
-                                            - Hotel: 4* Hotel or similar
-                                            DAY 2 TOKYO 
-                                            - Hotel breakfast. 
-                                            - Visit Asakusa Temple. 
-                                            - Visit Sky tree (Photo stop). 
-                                            - Visit Shibuya Crossing, Hachiko statue. 
-                                            -Transfer to hotel and check in. 
-                                            - Hotel: 3.5* Hotel or similar
-                                            DAY 3 TOKYO 
-                                            - Hotel breakfast. 
-                                            - Free and easy day. (Without tour guide and transfer)
-                                            Optional tour 1: Visit Disneyland (include one day pass ticket, transfer), Surcharge USD 119/PAX (Minimum of 10 PAX push through)
-                                            Optional tour 2: Kotoku-in Temple & Enoshima One Day Tour from Tokyo (include transfer, tour guide) Surcharge USD 79/PAX (Minimum of 10 PAX push through)
-                                            - Hotel: 3.5* Hotel or similar
-                                            DAY 4 TOKYO-MT.FUJI-HAMAMATSU 
-                                            - Hotel breakfast. 
-                                            - Visit Lake Kawaguchi. 
-                                            - Oshino Hakkai.
-                                            - Free time for shopping in Gotemba Premium Outlets. 
-                                            - Transfer to hotel and check in. 
-                                            - Hotel: 4* Hotel or similar
-                                            DAY 5 HAMAMATSU-KYOTO-NARA-OSAKA 
-                                            - Hotel breakfast. 
-                                            - Visit Jewelry duty free shop. 
-                                            - Visit Fushimi Inari-taisha. 
-                                            - Visit Nara park. 
-                                            - Transfer to hotel and check in, Enjoy shopping time at Shinsaibashi, Dotonbori by yourself. 
-                                            - Hotel: 3* Hotel or similar
-                                            DAY 6 OSAKA-MANILA 
-                                            - Hotel breakfast. 
-                                            - Visit Osaka Castle (photo stop). 
-                                            - Visit Cosmeceuticals duty free Shop. 
-                                            - Free shopping at Rinku Premium Outlets.
-                                            - Transfer to airport take the flight for departure. 
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
+
                                         <div class="bg-dark rounded p-4">
                                             <h6>TRAVEL DATES</h6>
                                             <div class="flight-box"> 
@@ -285,9 +215,95 @@
                                                 <p>DEC 11-16</p>
                                                 <p>DEC 25-30</p>
                                             </div>
-                                      
+                                        
                                             
                                         </div>
+                                    </div>
+                                    <div class="col-md-8 mr-3">
+                                        <div class="bg-dark rounded  p-4">
+                                            <h6>ITINERARY</h6>
+                                             <!--make sure that the data is pulled from tbl_itinerary, data should be inside p-->
+
+                                            <div class="day-card">
+                                                <div class="day-row"><h5>Day 1</h5></div>
+                                             
+                                                <div class="day-row"> 
+                                                    <div class="day-col">
+                                                        <h6>Location: </h6><p>Manila -> Tokyo</p>
+                                                    </div>
+                                                    <div class="day-col">
+                                                        <h6>Activity: </h6><p>Travel to Tokyo</p>
+                                                    </div>
+                                                </div>
+                                               
+                                                <h6>Points of Interest: </h6>
+                                                <p>Manila > Narita International Airport</p>
+                                                <div class="day-row">
+                                                    <div class="day-col">   
+                                                        <h6>Free Time Activities: </h6><p>None</p>
+                                                    </div>
+                                                    <div class="day-col">
+                                                        <h6>Hotel: </h6><p>Hotel: 4* Hotel or similar</p> 
+                                                    </div>     
+                                                </div>
+                                                <div class="day-col">
+                                                    <h6>Meals: </h6><p>B</p>
+                                                </div>                                               
+                                            </div>
+                                            <div class="day-card">
+                                                <div class="day-row"><h5>Day 2</h5></div>
+                                                <div class="day-row"> 
+                                                    <div class="day-col">
+                                                        <h6>Location: </h6><p>Tokyo</p>
+                                                    </div>
+                                                    <div class="day-col">
+                                                        <h6>Activity: </h6><p>Visit</p>
+                                                    </div>
+            
+                                                </div>
+                                               
+                                                <h6>Points of Interest: </h6>
+                                                <p>Asakusa -> Skytree -> Shibuya Crossing -> Hachiko Statue</p>
+                                                <div class="day-row">
+                                                    <div class="day-col">   
+                                                        <h6>Free Time Activities: </h6><p>None</p>
+                                                    </div>
+                                                    <div class="day-col">
+                                                        <h6>Hotel: </h6><p>3.5* Hotel or similar</p> 
+                                                    </div>     
+                                                </div>
+                                                <div class="day-col">
+                                                    <h6>Meals: </h6><p>B</p>
+                                                </div>                                               
+                                            </div>
+                                                   <!--make sure that the data is pulled from tbl_itinerary, data should be inside p-->
+                                            <div class="day-card">
+                                                    <div class="day-row"><h5>Day 3</h5></div>
+                                                    <div class="day-row"> 
+                                                        <div class="day-col">
+                                                            <h6>Location: </h6><p>Tokyo</p>
+                                                        </div>
+                                                        <div class="day-col">
+                                                            <h6>Activity: </h6><p>Free and easy day</p>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                    <h6>Points of Interest: </h6>
+                                                    <p>Disneyland or Kotoku-in Temple & Enoshima (both optional) </p>
+                                                    <div class="day-row">
+                                                        <div class="day-col">   
+                                                            <h6>Free Time Activities: </h6><p>USD 119/PAX( 1 day pass at Disneyland) || 79/PAX(Kotoku-in Temple & Enoshima )</p>
+                                                        </div>
+                                                        <div class="day-col">
+                                                            <h6>Hotel: </h6><p>3.5* Hotel or similar</p> 
+                                                        </div>     
+                                                    </div>                                               
+                                            </div>
+                                    
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        
                                     </div>
                                 
                                 </div>
@@ -324,14 +340,14 @@
                                         <!--Last Name-->
                                         <div class="column"> 
                                             <div class="form-floating mb-3">
-                                                <input type="email" class="form-control" id="Lname"  placeholder="" value="Smith">
+                                                <input type="email" class="form-control" id="lName"  placeholder="" value="Smith">
                                                 <label for="floatingInput">Last Name</label>
                                             </div>
                                         </div>
                                         <!--Mid Name-->
                                         <div class="column"> 
                                             <div class="form-floating mb-3">
-                                                <input type="email" class="form-control" id="floatingInput"  placeholder="">
+                                                <input type="email" class="form-control" id="mName"  placeholder="">
                                                 <label for="floatingInput">Middle Name</label>
                                             </div>
                                         </div>
@@ -340,11 +356,14 @@
                                         <select class="form-select" id="floatingSelect"
                                             aria-label="Floating label select example">
                                             <option selected>Select Available Flights</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                            <option value="JUL 24-29">JUL 24-29</One</option>
+                                            <option value="AUG 28-SEP 02">AUG 28-SEP 02</option>
+                                            <option value="SEP 25-3">SEP 25-30</option>
+                                            <option value="OCT 16-21">OCT 16-21</option>
+                                            <option value="OCT 30-NOV 04">OCT 30-NOV 04</option>
+                                            <option value="OCT 31-NOV05">OCT 31-NOV05</option>
                                         </select>
-                                        <label for="floatingSelect">Flight</label>
+                                        <label for="floatingSelect">Date</label>
                                     </div>
                                     <div class="container-col">
                                         <div class="column">

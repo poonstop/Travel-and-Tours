@@ -386,13 +386,44 @@
     
 
 }
+.info-container h6{
+    color: #EB1616;
+}
 .info-container > .col-md-4:not(:last-child),
 .info-container > .col-md-6:not(:last-child) {
     margin-right: 5px; /* Adjust the margin as needed */
 }
+.day-card{
+    background-color: #191C24; 
+    padding: 5px 20px;
+    border-radius: 20px;  
+    margin-bottom: 10px;
+}
+.day-col{
+    display: inline;
+    width: 100%;
+}
+
+pre{
+    text-align: left;
+    width: 100%;
+    font-size: 12px;
+}
+.day-row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    
+}
+.day-row header{
+        display: inline;
+        margin-right: 10px;
+}
 
 .flight-box p{
-   text-align: center;
+    text-align: center;
     margin-bottom: 5px;
     font-size: 14px;
     padding: 5px;
