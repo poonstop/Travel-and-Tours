@@ -97,9 +97,7 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-                </form>
+                <h2 class="text-primary m-2">Reinjan User Management</h3>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -182,16 +180,110 @@
 
             <!-- Blank Start -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
-                    <div class="col-md-6 text-center">
-                        <h3>This is blank page</h3>
+                <div class="col-sm-12 col-xl-10 mx-auto w-100 ">
+                    <div class="bg-secondary rounded h-100 p-4 border border-danger">
+                        <h6 class="mb-4">Staff Information</h6>
+                        <!--Search function-->
+                        <div class="d-md-flex">
+                            <div class="row col-sm-8 mb-4">
+                                <form class="col-sm-2 d-md-flex w-75">
+                                    <div>
+                                        <input class="form-control bg-dark border-0" type="search" placeholder="Search">
+                                    </div>
+                                    <div class="ps-1">
+                                        <button class="btn btn-sm btn-outline-primary bi-search" id="searchBtn"></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="row col-sm-2 mb-4 ms-auto">                           
+                                <button class="btn btn-sm btn-success w-50" id="addUser">Add user</button>      
+                            </div>
+                        </div>
+                        <!--table-->
+                        <div class="table-responsive">
+                            <table class="table text-start align-middle table-bordered table-hover mb-0">
+                                <thead>
+                                    <tr class="text-white">
+                                       
+                                        <th scope="col">Username</th>
+                                        <th scope="col">Last Name</th>
+                                        <th scope="col">First Name</th>
+                                        <th scope="col 2">Middle Name</th>
+                                        <th scope="col">Password</th>
+                                        <th scope="col">Email Address</th>
+                                        <th scope="col">User Level</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!--pull data from database to here-->
+                                    <tr>
+                                        
+                                        <td>JohnyDoe</td>
+                                        <td>Doe</td>
+                                        <td>John</td>
+                                        <td>D.</td>
+                                        <td>JohnDoe2024</td>
+                                        <td>john@gmail.com</td>
+                                        <td>Admin</td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-success m-2">Edit</button>
+                                            <button type="button" class="btn btn-sm btn-danger m-2">Delete</button>
+                                        </td>
+                                       
+                                    </tr> 
+                                    <tr>
+    
+                                        <td>JaneyDoe</td>
+                                        <td>Doe</td>
+                                        <td>Jane</td>
+                                        <td>D.</td>
+                                        <td>JaneDoe2023</td>
+                                        <td>jane@gmail.com</td>
+                                        <td>Employee</td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-success m-2">Edit</button>
+                                            <button type="button" class="btn btn-sm btn-danger m-2">Delete</button>
+                                        </td>
+                                    </tr> 
+                                   
+                                    <tr>
+                                        
+                                        <td>WeepingLady</td>
+                                        <td>Llorona</td>
+                                        <td>Maria</td>
+                                        <td>L.</td>
+                                        <td>Llorona234</td>
+                                        <td>maria@gmail.com</td>
+                                        <td>Employee</td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-success m-2">Edit</button>
+                                            <button type="button" class="btn btn-sm btn-danger m-2">Delete</button>
+                                        </td>
+                                    </tr> 
+    
+                                    <tr>
+    
+                                        <td>Corazon</td>
+                                        <td>Donquixote</td>
+                                        <td>Rosinante</td>
+                                        <td>D.</td>
+                                        <td>Corazon2024</td>
+                                        <td>dressrosa@gmail.com</td>
+                                        <td>Employee</td>
+                                        <td>
+                                            <button type="button" class="btn btn-sm btn-success m-2">Edit</button>
+                                            <button type="button" class="btn btn-sm btn-danger m-2">Delete</button>
+                                        </td>
+                                    </tr> 
+                                </tbody>
+                            </table>
                     </div>
                 </div>
-            </div>
             <!-- Blank End -->
 
 
-            <!-- Footer Start -->
+            <!-- 
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
                     <div class="row">
@@ -199,14 +291,14 @@
                             &copy; <a href="#">Your Site Name</a>, All Right Reserved. 
                         </div>
                         <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                          
                             Designed By <a href="https://htmlcodex.com">HTML Codex</a>
                             <br>Distributed By: <a href="https://themewagon.com" target="_blank">ThemeWagon</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- Footer End -->
+           Footer End -->
         </div>
         <!-- Content End -->
 
