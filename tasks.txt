@@ -1,41 +1,29 @@
 tasks to do
+when updating the scripts, use github desktop(learn how to use pull, merge, push and branching)
 
 create database named db_ttms
 then create tables;
-tbl_user
-tbl_package
-tbl_booking
+tbl_user(uname, lname, fname, mi, pass, email, phone, userlvl)
+tbl_pack(pack_code, title, )
+tbl_booking()
+tbl_flight?
+tbl_datePlan?
+
+make sure to copy/paste the admin.html file then rename it to client for client.html
+    remove the reports, packageedit, user management
+    
+
+general instructions:
+create/modify scripts for JS frontend and PHP backend(make sure to test the data flow first before actually inserting into the database for easier debugging)
 
 
-signup.html backend
--receive input then store to database 
--check formatting of email if correct
--check if username already exists
 
-signin.html backend
--receive input then checks if the credential matches to the database, 
-then redirects to the main dashboard and adds/removes features depending 
-on user level(client, employee, admin)
--if there is password and username mismatch, display alert message 
--if there is no userfound, display alert message
+Admin Folder
+admin.html
+bookinfolist.html
+booking.html
+client.html
+staff.html
+itineraryreport.html
+packageedit.html
 
-index.html frontend and backend
-frontend
--fix the column and the redirects
--note the items inside the main page content, prepare to display package details from backend
-
-backend
--display username of the person logged in and their user level
-
-priority list
-make sure to add dummy records as well for all management and index
-
-staff.html(user management) Humphrey
--create a table for displaying the list of all the staff and their details
-
-
-bookinfo.html(booking information)  Maverick
--create a list of booked itineraries for the client only
-
-bookhist.html(itinerary history) Maverick
--create a table of all the booked itineraries for the admin and employee
