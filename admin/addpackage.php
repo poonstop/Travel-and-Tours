@@ -3,37 +3,29 @@ session_start(); // Start the session
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <title>Package Manager</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
     <!-- Favicon -->
     <link href="../img/favicon.ico" rel="icon">
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
     <!-- Libraries Stylesheet -->
     <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Template Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
 </head>
-
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
@@ -236,7 +228,8 @@ session_start(); // Start the session
                                         <div class="bg-dark rounded p-4">
                                             <h6>TRAVEL DATES</h6>
                                             <div class="flight-box" id="flight containers"> 
-                                                <!--similar to add day script here-->   
+                                                <!--similar to add day script here--> 
+                                                <input type="text" name="" id="flight">  
                                                 <p>JUL 24-29</p>
                                                 <p>AUG 28-SEP 02</p>
                                                 <p>SEP 25-30</p>
@@ -247,7 +240,7 @@ session_start(); // Start the session
                                                 <p>NOV 27-DEC 02</p> 
                                                 <p>DEC 11-16</p>
                                                 <p>DEC 25-30</p>
-                                                <button class="rounded w-100 btn-success">Add Flight</button>
+                                                <button id="" class="rounded w-100 btn-success">Add Flight</button>
                                             </div> 
                                         </div>
                                     </div>  
@@ -295,6 +288,37 @@ session_start(); // Start the session
                 </div>
             </div>
             <!-- Footer End -->
+            <?php
+                // Check if data is received via POST request
+                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                    // Retrieve the JSON data sent by AJAX
+                    $dayCardData = json_decode($_POST['dayCardData'], true);
+
+                    // Process each day card data
+                    foreach ($dayCardData as $dayData) {
+                        // Extract data from the day card
+                        $day = $dayData['day'];
+                        $meal = $dayData['meal'];
+                        $acts = $dayData['acts'];
+                        $areas = $dayData['areas'];
+                        $optionAct = $dayData['optionAct'];
+                        $hotelstat = $dayData['hotelstat'];
+                        $hotel = $dayData['hotel'];
+
+                        // Print or store the data as needed
+                        // For example, you can echo the data to display it in the HTML
+                        echo "Day $day:<br>";
+                        echo "Meal: $meal<br>";
+                        echo "Activities: $acts<br>";
+                        echo "Areas: $areas<br>";
+                        echo "Optional Activities: $optionAct<br>";
+                        echo "Hotel Status: $hotelstat<br>";
+                        echo "Hotel: $hotel<br>";
+                        echo "<br>";
+                    }
+                }
+                ?>
+
         </div>
         <!-- Content End -->
 
@@ -320,6 +344,8 @@ session_start(); // Start the session
     <!-- Custom JavaScript -->
     <script src="js-files/addpackage.js"></script>
     <script src="php-files/add-tblpack.php"></script>
+
+
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
 
