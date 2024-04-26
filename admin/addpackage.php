@@ -1,3 +1,6 @@
+<?php
+session_start(); // Start the session
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -174,22 +177,49 @@
             </nav>
             <!-- Navbar End -->
 
-            
             <div class="container-fluid pt-4 px-4">
                 <!--create custom class for container-->
+                <div class="d-flex justify-content-end mb-3">
+                    <button id="reset" class="btn btn-danger me-2">Clear</button>
+                    <button id="saveBtn" class="btn btn-success">Save</button>
+                </div>
                 <div class="booking-container"> 
+                    
                         <!--package information goes here, all info is from tbl_package-->
                     <div class="col-md-6">
-
+                    
                             <div class="bg-secondary rounded h-100 p-4 mr-3">
                                 <h5>Package Information</h5>
                                 <div class="info-container">
                                    
                                     <!--values retrieved from tbl_package-->
-                                    <div class="col-md-4 mr-3 "> 
+                                    <div class="col-md-6 mr-3 "> 
+                                        <div class="day-row d-flex justify-content-center mb-2 p-1">
+                                            <div class="form-floating col-md-4 w-100">
+                                                <input class="form-control" type="text" id="title" placeholder="">
+                                                <label for="title">Title</label>
+                                            </div>
+                                        </div>
+                                        <div class="day-row d-flex justify-content-center mb-2 p-1">
+                                            <div class="form-floating col-md-4 w-100">
+                                                <input class="form-control" type="text" id="route" placeholder="">
+                                                <label for="route">Route(ex. city1>city2>city3...)</label>
+                                            </div>
+                                        </div>
+                                        <div class="form-floating w-100">
+                                            <textarea class="form-control" id="include" style="height: 150px;"></textarea>
+                                            <label for="include">Inclusion</label>
+                                        </div>
+                                        <br>
+                                        <div class="form-floating w-100">
+                                            <textarea class="form-control" id="exclude" style="height: 150px;"></textarea>
+                                            <label for="exclude">Exclusion</label>
+                                        </div>
                                         <div class=" rounded p-4">
                                             <h6>PRICING</h6>
-                                            <div class="form-floating mb-2">    
+                                            
+                                            <div class="form-floating mb-2"> 
+                                                   
                                                 <input type="text" class="form-control" placeholder="" value="𝗨𝗦𝗗 𝟭𝟬𝟴𝟴/𝗣𝗔𝗫">
                                                 <label for="floatingInput">Adult & Child with bed: </label>
                                             </div>
@@ -200,10 +230,13 @@
                                         </div>
                                         <br>
 
+                                    </div>
+                                    <div class="col-md-4 mr-3">
+                                            
                                         <div class="bg-dark rounded p-4">
                                             <h6>TRAVEL DATES</h6>
-                                            <div class="flight-box"> 
-                                                <!--insert data from database here-->   
+                                            <div class="flight-box" id="flight containers"> 
+                                                <!--similar to add day script here-->   
                                                 <p>JUL 24-29</p>
                                                 <p>AUG 28-SEP 02</p>
                                                 <p>SEP 25-30</p>
@@ -214,87 +247,33 @@
                                                 <p>NOV 27-DEC 02</p> 
                                                 <p>DEC 11-16</p>
                                                 <p>DEC 25-30</p>
-                                            </div>
-                                        
-                                            
+                                                <button class="rounded w-100 btn-success">Add Flight</button>
+                                            </div> 
                                         </div>
-                                    </div>
-                                    <div class="col-md-8 mr-3">
-                                       
-                                    </div>
-                                    <div class="col-md-2">
-                                        
-                                    </div>
-                                
+                                    </div>  
                                 </div>
                                 
                             </div>                                                          
                     </div>
                     <div class="divider"></div>
-                            
-                               
-                        <!--form goes here-->
+                    <!--form for itineraries goes here-->
                     <div class="col-md-6">
-                            <div class="bg-secondary rounded h-100 p-1">
-                                <div class="bg-dark rounded  p-4">
-                                    <h6>ITINERARY PLANNER</h6>
-                                     <!--make sure that the data is pulled from tbl_itinerary, data should be inside p-->
+                        <div class="bg-secondary rounded h-100 p-1">
+                            <div class="bg-dark rounded  p-4">
+                                <h6>ITINERARY PLANNER</h6>
 
-                                    <div class="day-card p-3">
-                                        <div class="day-row">
-                                            <h5>Day (insert auto increment here)</h5>
-                                        </div>
-                                     
-                                        <div class="day-row d-flex justify-content-center mb-2 p-1">
-                                            <div class="form-floating col-md-4 w-50">
-                                                <input class="form-control" type="text" id="meal"  placeholder="">
-                                                <label for="meal">Meals(ex. b/l/d or b/x/x)</label>
-                                            </div>
-                                            <div class="divider"></div>
-                                            <div class="form-floating col-md-4 w-50">
-                                                <input class="form-control" type="text" id="acts"  placeholder="">
-                                                <label for="acts">Activities</label>
-                                            </div>
-                                        </div>
-                                        <div class="day-row d-flex justify-content-center mb-2 p-1">
-                                            <div class="form-floating col-md-4 w-100">
-                                                <input class="form-control" type="text" id="areas"  placeholder="">
-                                                <label for="areas">Locations(ex. city1>city2>city3...)</label>
-                                            </div>
-                                        </div>
-                                        <div class="day-row d-flex justify-content-center mb-2 p-1">
-                                            <div class="form-floating col-md-4 w-100">
-                                                <input class="form-control" type="text" id="optionAct"  placeholder="">
-                                                <label for="optionAct">Optional Activities</label>
-                                            </div>
-                                        </div>
-                                        <div class="day-row d-flex justify-content-center">
-                                            <div class="form-floating col-md-4 mr-3">
-                                                <select type="text" class="form-select" id="hotelstat" placeholder="">
-                                                    <option value="Check-In" id="checkin">Check-In</option>
-                                                    <option value="Transfer" id="transfer">Transfer</option>
-                                                    <option value="Check-Out" id="checkout">Check-Out</option>
-                                                </select>
-                                                <label for="hotelstat">Hotel Status</label>
-                                            </div>
-                                            <div class="col-md-2 text-center">
-                                                <p id="verb">To</p><!--add script to change this depending on the-->
-                                            </div>
-                                            <div class="form-floating col-md-6 ml-3">
-                                                <input class="form-control" type="text" id="hotel"  placeholder="">
-                                                <label for="hotel">Hotel</label>
-                                            </div>
-                                        </div>
-                                        
-                                                                                   
-                                    </div>
-                                    <!--button for adding a new itinerary-->
-                                    <button class="rounded w-100 btn-success">Add Day</button>
+                                <!--make sure that the data is pulled from tbl_itinerary, data should be inside p-->
+
+                                <div id="dayContainer">
+                                    <!-- Day cards will be appended here dynamically -->
                                 </div>
+
+                                <!--button for adding a new itinerary-->
+                                <button class="rounded w-100 btn-success" id="addDayBtn">Add Day</button>
                             </div>
+                        </div>
                     </div>
-                </div>
-                
+         
             </div>
             <br>
             <br>
@@ -334,6 +313,13 @@
     <script src="../lib/tempusdominus/js/moment.min.js"></script>
     <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Template Javascript -->
+    <script src="../js/main.js"></script>
+
+    
+    <!-- Custom JavaScript -->
+    <script src="js-files/addpackage.js"></script>
+    <script src="php-files/add-tblpack.php"></script>
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
 
