@@ -184,12 +184,12 @@ session_start(); // Start the session
                                 <h5>Package Information</h5>
                                 <div class="info-container">
                                    
-                                    <!--values retrieved from tbl_package-->
-                                    <div class="col-md-6 mr-3 "> 
+                                    <!--form for tbl_pack-->
+                                    <div id="packContainer" class="col-md-6 mr-3 "> 
                                         <div class="day-row d-flex justify-content-center mb-2 p-1">
                                             <div class="form-floating col-md-4 w-100">
-                                                <input class="form-control" type="text" id="title" placeholder="">
-                                                <label for="title">Title</label>
+                                                <input class="form-control" type="text" id="packTitle" placeholder="">
+                                                <label for="packTitle">Title</label>
                                             </div>
                                         </div>
                                         <div class="day-row d-flex justify-content-center mb-2 p-1">
@@ -207,7 +207,8 @@ session_start(); // Start the session
                                             <textarea class="form-control" id="exclude" style="height: 150px;"></textarea>
                                             <label for="exclude">Exclusion</label>
                                         </div>
-                                        <div class=" rounded p-4">
+                                        <!--form for tbl_price-->
+                                        <div id="priceContainer" class=" rounded p-4">
                                             <h6>PRICING</h6>
                                             
                                             <div class="form-floating mb-2"> 
@@ -221,15 +222,15 @@ session_start(); // Start the session
                                             </div>
                                         </div>
                                         <br>
-
                                     </div>
-                                    <div class="col-md-4 mr-3">
-                                            
-                                        <div class="bg-dark rounded p-4">
+
+                                    <div  class="col-md-4 mr-3">
+                                         <!--form for tbl_flightlist-->   
+                                        <div id="flightContainer" class="bg-dark rounded p-4">
                                             <h6>TRAVEL DATES</h6>
                                             <div class="flight-box" id="flight containers"> 
                                                 <!--similar to add day script here--> 
-                                                <input type="text" name="" id="flight">  
+                                                <input type="text" name="">  
                                                 <p>JUL 24-29</p>
                                                 <p>AUG 28-SEP 02</p>
                                                 <p>SEP 25-30</p>
@@ -288,43 +289,11 @@ session_start(); // Start the session
                 </div>
             </div>
             <!-- Footer End -->
-            <?php
-                // Check if data is received via POST request
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-                    // Retrieve the JSON data sent by AJAX
-                    $dayCardData = json_decode($_POST['dayCardData'], true);
-
-                    // Process each day card data
-                    foreach ($dayCardData as $dayData) {
-                        // Extract data from the day card
-                        $day = $dayData['day'];
-                        $meal = $dayData['meal'];
-                        $acts = $dayData['acts'];
-                        $areas = $dayData['areas'];
-                        $optionAct = $dayData['optionAct'];
-                        $hotelstat = $dayData['hotelstat'];
-                        $hotel = $dayData['hotel'];
-
-                        // Print or store the data as needed
-                        // For example, you can echo the data to display it in the HTML
-                        echo "Day $day:<br>";
-                        echo "Meal: $meal<br>";
-                        echo "Activities: $acts<br>";
-                        echo "Areas: $areas<br>";
-                        echo "Optional Activities: $optionAct<br>";
-                        echo "Hotel Status: $hotelstat<br>";
-                        echo "Hotel: $hotel<br>";
-                        echo "<br>";
-                    }
-                }
-                ?>
 
         </div>
         <!-- Content End -->
+  
 
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
 
     <!-- JavaScript Libraries -->
@@ -345,20 +314,8 @@ session_start(); // Start the session
     <script src="js-files/addpackage.js"></script>
     <script src="php-files/add-tblpack.php"></script>
 
-
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
-
-    <script>
-        document.getElementById("checkrequest").addEventListener("change", function() {
-            var requestField = document.getElementById("request");
-            requestField.disabled = !this.checked;
-            if (!this.checked) {
-                requestField.disabled = true;
-            }
-        });
-    </script>
-    
 </body>
 
 </html>
