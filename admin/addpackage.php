@@ -172,8 +172,7 @@ session_start(); // Start the session
             <div class="container-fluid pt-4 px-4">
                 <!--create custom class for container-->
                 <div class="d-flex justify-content-end mb-3">
-                    <button id="reset" class="btn btn-danger me-2">Clear</button>
-                    <button id="saveBtn" class="btn btn-success">Save</button>
+               
                 </div>
                 <div class="booking-container"> 
                     
@@ -181,7 +180,15 @@ session_start(); // Start the session
                     <div class="col-md-6">
                     
                             <div class="bg-secondary rounded h-100 p-4 mr-3">
-                                <h5>Package Information</h5>
+                            <div class="d-flex mb-3">
+                                <div class="d-flex col-md-6 justify-content-start"><h5>Package Information</h5></div>
+                                <div class="d-flex col-md-6 justify-content-end">
+                                    <button id="clearPack" class="btn btn-danger me-2">Clear Package</button>
+                                    <button id="saveBtn" class="btn btn-success">Save Package</button>
+                                </div>
+                                  
+                                </div>
+                                
                                 <div class="info-container">
                                    
                                     <!--form for tbl_pack-->
@@ -253,9 +260,15 @@ session_start(); // Start the session
                     <!--form for itineraries goes here-->
                     <div class="col-md-6">
                         <div class="bg-secondary rounded h-100 p-1">
-                            <div class="bg-dark rounded  p-4">
-                                <h6>ITINERARY PLANNER</h6>
-
+                            <div class="bg-dark rounded  p-4">       
+                                <div class="d-flex mb-3">
+                                    <div class="d-flex col-md-8 justify-content-start"><h6>ITINERARY PLANNER</h6></div>
+                                    <div class="d-flex col-md-4 justify-content-end">
+                                        <button id="resetDates" class="btn btn-danger me-2">Clear Days</button>
+                                        <button id="saveDates" class="btn btn-success">Save Days</button>
+                                    </div>
+                                  
+                                </div>
                                 <!--make sure that the data is pulled from tbl_itinerary, data should be inside p-->
 
                                 <div id="dayContainer">
@@ -310,9 +323,14 @@ session_start(); // Start the session
     <script src="../js/main.js"></script>
 
     
-    <!-- Custom JavaScript -->
-    <script src="js-files/addpackage.js"></script>
-    <script src="php-files/add-tblpack.php"></script>
+    <!--custom javaScript-->
+    <script src="js-files/addPackage-pack.js"></script><!--main JS script-->
+    <!--<script src="js-files/test.js"></script>-->
+    <script src="js-files/addForms-pack.js"></script><!--addsforms -->
+    <script src="js-files/addPrices-pack.js"></script><!--addPrices -->
+    <script src="js-files/addFlights-pack.js"></script><!--addFlights -->
+    <script src="php-files/add-tblpack.php"></script><!--add to database-->
+
 
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>

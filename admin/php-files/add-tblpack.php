@@ -1,51 +1,55 @@
 <?php
-// Include the database connection file
-require_once '../../conn.php';
+require_once '../../conn.php';//connects to db, DONT TOUCH
 
-// Check if data is received via POST request
+//checks if data is received from AJAX
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Retrieve the JSON data sent by AJAX
-    $dayCardData = json_decode($_POST['dayCardData'], true);
-    
+    //data for tbl_pack(main)
+    $packCode = $_POST['packCode']; 
     $packTitle = $_POST['packTitle'];
     $route = $_POST['route'];
-    $inclusion = $_POST['inclusion'];
-    $exclusion = $_POST['exclusion'];
-    
-    /*
-    // Loop through each day card data
-    foreach ($dayCardData as $dayData) {
-        // Extract data from the day card
-        $day = $dayData['day'];
-        $meal = $dayData['meal'];
-        $acts = $dayData['acts'];
-        $areas = $dayData['areas'];
-        $optionAct = $dayData['optionAct'];
-        $hotelstat = $dayData['hotelstat'];
-        $hotel = $dayData['hotel'];
+    $include = $_POST['include'];
+    $exclude = $_POST['exclude'];
 
-        // SQL query to insert data into tbl_itinerary
-        $sql = "INSERT INTO tbl_itinerary (day, meals, hotel_stat, hotel, activity, poi, optional) VALUES (:day, :meal, :hotelstat, :hotel, :acts, :areas, :optionAct)";
+    //prepare for tbl_pak
+    $sqlPack = "INSERT INTO tbl_pack (pack_code, title, locations, inclusion, exclusion) VALUES (:packCode, :title, :locations, :inclusion, :exclusion)";
+    $stmtPack = $conn->prepare($sqlPack);
+    $stmtPack->bindParam(':packCode', $packCode);
+    $stmtPack->bindParam(':title', $packTitle);
+    $stmtPack->bindParam(':locations', $route);
+    $stmtPack->bindParam(':inclusion', $include);
+    $stmtPack->bindParam(':exclusion', $exclude);
 
-        // Prepare and execute the SQL statement
-        $stmt = $conn->prepare($sql);
-        $stmt->bindParam(':day', $day);
-        $stmt->bindParam(':meal', $meal);
-        $stmt->bindParam(':acts', $acts);
-        $stmt->bindParam(':areas', $areas);
-        $stmt->bindParam(':optionAct', $optionAct);
-        $stmt->bindParam(':hotelstat', $hotelstat);
-        $stmt->bindParam(':hotel', $hotel);
-        $stmt->execute();
+    //execute
+    if ($stmtPack->execute()) {
+        //check if data is empty
+        if (isset($_POST['dayCardData']) && !empty($_POST['dayCardData'])) {
+            $dayCardData = json_decode($_POST['dayCardData'], true);
+
+            //prepare for tbl_itinerary
+            $sqlItinerary = "INSERT INTO tbl_itinerary (pack_code, day, meals, hotel_stat, hotel, activity, poi, optional) VALUES (:packCode, :day, :meals, :hotel_stat, :hotel, :activity, :poi, :optional)";
+            $stmtItinerary = $conn->prepare($sqlItinerary);
+
+            //multiple day card data, execute prepared statement for tbl_itinerary
+            foreach ($dayCardData as $dayData) {
+                $stmtItinerary->bindParam(':packCode', $packCode);
+                $stmtItinerary->bindParam(':day', $dayData['day']);
+                $stmtItinerary->bindParam(':meals', $dayData['meal']);
+                $stmtItinerary->bindParam(':hotel_stat', $dayData['hotelstat']);
+                $stmtItinerary->bindParam(':hotel', $dayData['hotel']);
+                $stmtItinerary->bindParam(':activity', $dayData['acts']);
+                $stmtItinerary->bindParam(':poi', $dayData['areas']);
+                $stmtItinerary->bindParam(':optional', $dayData['optionAct']);
+                $stmtItinerary->execute();
+            }
+        }
+        //successful data insertion
+        echo json_encode(array('success' => true));
+    } else {
+        //error message for tbl_pack
+        echo json_encode(array('error' => 'Error inserting data into tbl_pack'));
     }
-    
-    // Close the database connection
-    $conn = null;
-    */
-    // Output success message
-    echo json_encode(array('success' => true));
 } else {
-    // Output error message if data is not received via POST
-    echo json_encode(array('error' => 'Data not received via POST'));
+    //error message if data from AJAX is missing
+    echo json_encode(array('error' => 'Data not received at POST'));
 }
 ?>

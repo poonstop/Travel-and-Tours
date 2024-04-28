@@ -1,7 +1,8 @@
-$(document).ready(function() {
+$(document).ready(function(){
+    //adds Day Card 
     function addDayCard() {
-        var dayCount = $('.day-card').length + 1; //Get the current count of day cards
-        $('.day-card .btn-close').remove(); //removes all close buttons
+        var dayCount = $('.day-card').length + 1;
+        $('.day-card .btn-close').remove();
         var dayCardHtml = `
             <div class="day-card p-3" id="dayCard${dayCount}">
                 <!-- Close button -->
@@ -10,12 +11,12 @@ $(document).ready(function() {
                     <h5>Day ${dayCount}</h5>
                 </div>
                 <div class="day-row d-flex justify-content-center mb-2 p-1">
-                    <div class="form-floating col-md-4 w-50">
+                    <div class="form-floating col-md-2 w-25">
                         <input class="form-control" type="text" id="meal${dayCount}" placeholder="">
                         <label for="meal${dayCount}">Meals (e.g., b/l/d or b/x/x)</label>
                     </div>
                     <div class="divider"></div>
-                    <div class="form-floating col-md-4 w-50">
+                    <div class="form-floating col-md-6 w-100">
                         <input class="form-control" type="text" id="acts${dayCount}" placeholder="">
                         <label for="acts${dayCount}">Activities</label>
                     </div>
@@ -52,33 +53,27 @@ $(document).ready(function() {
             </div>
         `;
         $('#dayContainer').append(dayCardHtml);
-        //Add Close button ONLY to the latest day card
         $('#dayCard' + dayCount).append('<button type="button" class="btn-close float-end" aria-label="Close"></button>');
-        //Close button
         $('#dayCard' + dayCount + ' .btn-close').click(function() {
-            $(this).closest('.day-card').remove(); // Remove the day card when the Close button is clicked
-            //adds "X" button to the new card
+            $(this).closest('.day-card').remove();
             if ($('.day-card').length > 0) {
                 var latestDayCount = $('.day-card').length;
                 $('#dayCard' + latestDayCount).append('<button type="button" class="btn-close float-end" aria-label="Close"></button>');
-                // Reassign the event listener to the new Close button
                 $('#dayCard' + latestDayCount + ' .btn-close').click(function() {
-                    $(this).closest('.day-card').remove(); // Remove the day card when the Close button is clicked
+                    $(this).closest('.day-card').remove();
                 });
             }
         });
-    }
-    //clear button(might improve later)
-    $('.btn-danger').click(function() {
-        //reset form fields
-        $('input[type="text"]').val('');
-        $('select').val('');
-        $('textarea').val('');
-    });
-
+    } 
+    //adds new itinerary form
     $('#addDayBtn').click(function() {
         addDayCard();
     });
 
-
+    //clear every forms
+    $('#clearPack').click(function() {
+        $('input[type="text"]').val('');
+        $('select').val('');
+        $('textarea').val('');
+    });
 });
