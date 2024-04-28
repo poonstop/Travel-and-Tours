@@ -236,8 +236,18 @@ session_start(); // Start the session
                                         <div id="flightContainer" class="bg-dark rounded p-4">
                                             <h6>TRAVEL DATES</h6>
                                             <div class="flight-box" id="flight containers"> 
-                                                <!--similar to add day script here--> 
-                                                <input type="text" name="">  
+                                                <!--similar to add day script here-->
+                                                <div class="row d-flex justify-content-center mb-2 p-1">
+                                                    <div class="form-floating col-md-2 w-25">
+                                                        <input class="form-control" type="text" id="meal${dayCount}" placeholder="">
+                                                        <label for="meal${dayCount}">Meals (e.g., b/l/d or b/x/x)</label>
+                                                    </div>
+                                                    <div class="divider"></div>
+                                                    <div class="form-floating col-md-6 w-100">
+                                                        <button type="button" class="btn-close float-end" aria-label="Close"></button>
+                                                    </div>
+                                                </div> 
+
                                                 <p>JUL 24-29</p>
                                                 <p>AUG 28-SEP 02</p>
                                                 <p>SEP 25-30</p>
@@ -256,29 +266,16 @@ session_start(); // Start the session
                                 
                             </div>                                                          
                     </div>
-                    <div class="divider"></div>
+                    <div class="divider m-1"></div>
                     <!--form for itineraries goes here-->
                     <div class="col-md-6">
-                        <div class="bg-secondary rounded h-100 p-1">
-                            <div class="bg-dark rounded  p-4">       
-                                <div class="d-flex mb-3">
-                                    <div class="d-flex col-md-8 justify-content-start"><h6>ITINERARY PLANNER</h6></div>
-                                    <div class="d-flex col-md-4 justify-content-end">
-                                        <button id="resetDates" class="btn btn-danger me-2">Clear Days</button>
-                                        <button id="saveDates" class="btn btn-success">Save Days</button>
-                                    </div>
-                                  
-                                </div>
-                                <!--make sure that the data is pulled from tbl_itinerary, data should be inside p-->
-
-                                <div id="dayContainer">
-                                    <!-- Day cards will be appended here dynamically -->
-                                </div>
-
-                                <!--button for adding a new itinerary-->
-                                <button class="rounded w-100 btn-success" id="addDayBtn">Add Day</button>
-                            </div>
+                        <div class="d-flex rounded bg-secondary mb-3 p-4"><h6>ITINERARY PLANNER</h6></div>
+                        <!--make sure that the data is pulled from tbl_itinerary, data should be inside p-->
+                        <div id="dayContainer">
+                            <!-- Day cards will be appended here dynamically -->
                         </div>
+                        <!--button for adding a new itinerary-->
+                        <button class="rounded w-100 btn-success" id="addDayBtn">Add Day</button>        
                     </div>
          
             </div>

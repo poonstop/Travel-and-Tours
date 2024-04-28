@@ -11,12 +11,12 @@ $(document).ready(function(){
                     <h5>Day ${dayCount}</h5>
                 </div>
                 <div class="day-row d-flex justify-content-center mb-2 p-1">
-                    <div class="form-floating col-md-2 w-25">
+                    <div class="form-floating col-md-4 w-25">
                         <input class="form-control" type="text" id="meal${dayCount}" placeholder="">
-                        <label for="meal${dayCount}">Meals (e.g., b/l/d or b/x/x)</label>
+                        <label for="meal${dayCount}">Meals (B/L/D)</label>
                     </div>
                     <div class="divider"></div>
-                    <div class="form-floating col-md-6 w-100">
+                    <div class="form-floating col-md-4 w-75">
                         <input class="form-control" type="text" id="acts${dayCount}" placeholder="">
                         <label for="acts${dayCount}">Activities</label>
                     </div>
@@ -24,7 +24,7 @@ $(document).ready(function(){
                 <div class="day-row d-flex justify-content-center mb-2 p-1">
                     <div class="form-floating col-md-4 w-100">
                         <input class="form-control" type="text" id="areas${dayCount}" placeholder="">
-                        <label for="areas${dayCount}">Locations (e.g., city1>city2>city3...)</label>
+                        <label for="areas${dayCount}">Locations (location1>location2>location3...)</label>
                     </div>
                 </div>
                 <div class="day-row d-flex justify-content-center mb-2 p-1">

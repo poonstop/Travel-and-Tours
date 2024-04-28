@@ -41,7 +41,7 @@ $(document).ready(function() {
         console.log('Day Card Data:', dayCardData);//day card JSON 
         
         $.ajax({
-            url: 'php-files/test.php',
+            url: 'php-files/add-tblpack.php',
             method: 'POST',
             dataType: 'json',
             data: {
