@@ -12,7 +12,7 @@ $(document).ready(function(){
                 </div>
                 <div class="day-row d-flex justify-content-center mb-2 p-1">
                     <div class="form-floating col-md-4 w-25">
-                        <input class="form-control" type="text" id="meal${dayCount}" placeholder="">
+                        <input class="form-control" type="text" id="meal${dayCount}" maxlength=5 placeholder="">
                         <label for="meal${dayCount}">Meals (B/L/D)</label>
                     </div>
                     <div class="divider"></div>

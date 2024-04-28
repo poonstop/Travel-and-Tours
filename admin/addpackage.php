@@ -55,7 +55,7 @@ session_start(); // Start the session
             </div>
             <div class="navbar-nav w-100">
                 <!--Booking-->
-                <a href="admin.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
+                <a href="admin.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
                 <!--User Management-->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>User Management</a>
@@ -65,7 +65,7 @@ session_start(); // Start the session
                     </div>
                 </div>
                 <!--Travel package management-->
-                <a href="widget.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Package Management</a>
+                <a href="package.html" class="nav-item nav-link  active"><i class="fa fa-th me-2"></i>Package Management</a>
                 <!--Reports-->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
@@ -89,7 +89,7 @@ session_start(); // Start the session
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <h2 class="text-primary m-2">Reinjan Travel and Tours</h3>
+                <h2 class="text-primary m-2">Reinjan Package Creator</h3>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
@@ -133,7 +133,7 @@ session_start(); // Start the session
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                            <span class="d-none d-lg-inline-flex">Notification</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
@@ -162,122 +162,127 @@ session_start(); // Start the session
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="nouser.html" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
-
+            
             <div class="container-fluid pt-4 px-4">
-                <!--create custom class for container-->
-                <div class="d-flex justify-content-end mb-3">
-               
+                <div class="d-flex col-md-6 justify-content-end">
+                    <button id="clearPack" class="btn btn-danger me-2">Clear Package</button>
+                    <button id="saveBtn" class="btn btn-success">Save Package</button>
                 </div>
                 <div class="booking-container"> 
-                    
-                        <!--package information goes here, all info is from tbl_package-->
+              
+                    <!--General package information goes here-->
                     <div class="col-md-6">
-                    
                             <div class="bg-secondary rounded h-100 p-4 mr-3">
-                            <div class="d-flex mb-3">
-                                <div class="d-flex col-md-6 justify-content-start"><h5>Package Information</h5></div>
-                                <div class="d-flex col-md-6 justify-content-end">
-                                    <button id="clearPack" class="btn btn-danger me-2">Clear Package</button>
-                                    <button id="saveBtn" class="btn btn-success">Save Package</button>
-                                </div>
-                                  
-                                </div>
-                                
-                                <div class="info-container">
-                                   
+                                <div class="d-flex col-md-6 justify-content-start"><h5>Package Information</h5></div>      
                                     <!--form for tbl_pack-->
-                                    <div id="packContainer" class="col-md-6 mr-3 "> 
-                                        <div class="day-row d-flex justify-content-center mb-2 p-1">
-                                            <div class="form-floating col-md-4 w-100">
+                                        <div class="day-row d-flex justify-content-center mb-2">
+                                            <div class="form-floating col-md-4 w-50">
                                                 <input class="form-control" type="text" id="packTitle" placeholder="">
                                                 <label for="packTitle">Title</label>
                                             </div>
-                                        </div>
-                                        <div class="day-row d-flex justify-content-center mb-2 p-1">
-                                            <div class="form-floating col-md-4 w-100">
+                                            <div class="divider"></div>
+                                            <div class="form-floating col-md-4 w-50">
                                                 <input class="form-control" type="text" id="route" placeholder="">
-                                                <label for="route">Route(ex. city1>city2>city3...)</label>
+                                                <label for="route">Route (e.g., city1 > city2 > city3...)</label>
                                             </div>
                                         </div>
-                                        <div class="form-floating w-100">
-                                            <textarea class="form-control" id="include" style="height: 150px;"></textarea>
-                                            <label for="include">Inclusion</label>
-                                        </div>
-                                        <br>
-                                        <div class="form-floating w-100">
-                                            <textarea class="form-control" id="exclude" style="height: 150px;"></textarea>
-                                            <label for="exclude">Exclusion</label>
-                                        </div>
-                                        <!--form for tbl_price-->
-                                        <div id="priceContainer" class=" rounded p-4">
-                                            <h6>PRICING</h6>
-                                            
-                                            <div class="form-floating mb-2"> 
-                                                   
-                                                <input type="text" class="form-control" placeholder="" value="𝗨𝗦𝗗 𝟭𝟬𝟴𝟴/𝗣𝗔𝗫">
-                                                <label for="floatingInput">Adult & Child with bed: </label>
+                                        <div class="d-flex justify-content-center mb-2">
+                                            <div class="form-floating w-100">
+                                                <textarea class="form-control" id="include" style="height: 150px;"></textarea>
+                                                <label for="include">Inclusion</label>
                                             </div>
-                                            <div class="form-floating">
-                                                <input type="text" class="form-control" placeholder="" value="𝗨𝗦𝗗 𝟵𝟯𝟴/𝗣𝗔𝗫">
-                                                <label for="floatingInput">Child without bed (2-5yrs old): </label>
+                                            <div class="divider"></div>
+                                            <div class="form-floating w-100">
+                                                <textarea class="form-control" id="exclude" style="height: 150px;"></textarea>
+                                                <label for="exclude">Exclusion</label>
                                             </div>
-                                        </div>
-                                        <br>
                                     </div>
 
-                                    <div  class="col-md-4 mr-3">
-                                         <!--form for tbl_flightlist-->   
-                                        <div id="flightContainer" class="bg-dark rounded p-4">
-                                            <h6>TRAVEL DATES</h6>
-                                            <div class="flight-box" id="flight containers"> 
-                                                <!--similar to add day script here-->
-                                                <div class="row d-flex justify-content-center mb-2 p-1">
-                                                    <div class="form-floating col-md-2 w-25">
-                                                        <input class="form-control" type="text" id="meal${dayCount}" placeholder="">
-                                                        <label for="meal${dayCount}">Meals (e.g., b/l/d or b/x/x)</label>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h5>Price List</h5>
+                                            <!--price card-->
+                                            <div class="row-md-6">
+                                                <div class="rounded bg-secondary border border-success p-2 mb-3">
+                                                    <div>
+                                                        <h6>Price</h6>
+                                                        <!--insert close button somewhere here--> 
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-4"> 
+                                                            <div class="form-floating mb-2"> 
+                                                                <input type="text" class="form-control" id="curr" placeholder="">
+                                                                <label for="curr">Currency</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="form-floating mb-2"> 
+                                                                <input type="text" class="form-control" id="amount" placeholder="">
+                                                                <label for="amount">Amount</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>      
+                                                    <div class="row"> 
+                                                        <div class="col-md-12">
+                                                            <div class="form-floating">
+                                                                <input type="text" class="form-control" id="priceDesc" placeholder="">
+                                                                <label for="priceDesc">Description</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!--button that adds a price-->
+                                            <button id="btnAddPrice" class="rounded w-100 btn-success">Add Price</button>
+                                        </div>
+                                        <!--forms for tbl_flight-->
+                                        <div id="flightContainer" class="col-md-6 rounded">
+                                            <h5>Travel Dates</h5>
+                                            <div class="flight-box" id="flight containers">
+                                                <!--flight cards--> 
+                                                <div class="row d-flex bg-dark mb-2 p-1">
+                                                    <div class="form-floating col-md-4">
+                                                        <input class="form-control bg-secondary w-100" type="text" id="sched" placeholder="">
+                                                        <label for="sched">Travel Date</label>
                                                     </div>
                                                     <div class="divider"></div>
-                                                    <div class="form-floating col-md-6 w-100">
+                                                    <div class="form-floating col-md-8">
+                                                        <input class="form-control bg-secondary w-100" type="text" id="plane" placeholder="">
+                                                        <label for="plane">Airline</label>
+                                                    </div>
+                                                    <div class="form-floating col-md-2">
                                                         <button type="button" class="btn-close float-end" aria-label="Close"></button>
                                                     </div>
                                                 </div> 
-
-                                                <p>JUL 24-29</p>
-                                                <p>AUG 28-SEP 02</p>
-                                                <p>SEP 25-30</p>
-                                                <p>OCT 16-21</p>
-                                                <p>OCT 30-NOV 04</p>
-                                                <p>OCT 31-NOV05</p>
-                                                <p>NOV 20-25 </p>
-                                                <p>NOV 27-DEC 02</p> 
-                                                <p>DEC 11-16</p>
-                                                <p>DEC 25-30</p>
                                                 <button id="" class="rounded w-100 btn-success">Add Flight</button>
                                             </div> 
                                         </div>
-                                    </div>  
-                                </div>
-                                
+                                    </div>    
                             </div>                                                          
                     </div>
                     <div class="divider m-1"></div>
-                    <!--form for itineraries goes here-->
+
+                    <!--form for itineraries goes here-->  
                     <div class="col-md-6">
-                        <div class="d-flex rounded bg-secondary mb-3 p-4"><h6>ITINERARY PLANNER</h6></div>
-                        <!--make sure that the data is pulled from tbl_itinerary, data should be inside p-->
-                        <div id="dayContainer">
-                            <!-- Day cards will be appended here dynamically -->
-                        </div>
-                        <!--button for adding a new itinerary-->
-                        <button class="rounded w-100 btn-success" id="addDayBtn">Add Day</button>        
-                    </div>
-         
+                        <!--form for tbl_price-->
+                        <!--forms for tbl-itineraries--> 
+                        <div class="row-md-6 p-1">
+                            <div class="day-card bg-secondary p-4">
+                                <h6>ITINERARY PLANNER</h6>
+                            </div>
+                            <div id="dayContainer">
+                                <!--day cards here-->
+                            </div>
+                            <!--button for adding a new itinerary-->
+                            <button class="rounded w-100 btn-success" id="addDayBtn">Add Day</button>        
+                        </div>       
+                    </div>       
             </div>
             <br>
             <br>
