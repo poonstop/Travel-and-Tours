@@ -393,7 +393,19 @@
 .info-container > .col-md-6:not(:last-child) {
     margin-right: 5px; /* Adjust the margin as needed */
 }
+.flight-card-add{
+    background-color: #191C24; 
+    padding: 5px 20px;
+    border-radius: 20px;  
+    margin-bottom: 10px;
+}
 .day-card{
+    background-color: #191C24; 
+    padding: 5px 20px;
+    border-radius: 20px;  
+    margin-bottom: 10px;
+}
+.day-card-edit{
     background-color: #191C24; 
     padding: 5px 20px;
     border-radius: 20px;  

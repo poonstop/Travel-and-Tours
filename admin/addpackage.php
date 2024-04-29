@@ -168,112 +168,69 @@ session_start(); // Start the session
                 </div>
             </nav>
             <!-- Navbar End -->
-            
-            <div class="container-fluid pt-4 px-4">
-                <div class="d-flex col-md-6 justify-content-end">
+            <div class="container-fluid pt-4 px-4 ">
+                <div class="d-flex justify-content-end mb-4">
                     <button id="clearPack" class="btn btn-danger me-2">Clear Package</button>
-                    <button id="saveBtn" class="btn btn-success">Save Package</button>
+                    <button id="saveBtn" class="btn btn-success">Save Package</button><!--If possible, make this floating-->
                 </div>
-                <div class="booking-container"> 
-              
+                <div class="booking-container p-4">
                     <!--General package information goes here-->
                     <div class="col-md-6">
-                            <div class="bg-secondary rounded h-100 p-4 mr-3">
-                                <div class="d-flex col-md-6 justify-content-start"><h5>Package Information</h5></div>      
-                                    <!--form for tbl_pack-->
-                                        <div class="day-row d-flex justify-content-center mb-2">
-                                            <div class="form-floating col-md-4 w-50">
-                                                <input class="form-control" type="text" id="packTitle" placeholder="">
-                                                <label for="packTitle">Title</label>
-                                            </div>
-                                            <div class="divider"></div>
-                                            <div class="form-floating col-md-4 w-50">
-                                                <input class="form-control" type="text" id="route" placeholder="">
-                                                <label for="route">Route (e.g., city1 > city2 > city3...)</label>
-                                            </div>
+                            <div class="rounded h-100 mr-3">  
+                                <!--form for tbl_pack-->
+                                <div class="row rounded bg-secondary p-2 mb-3">
+                                <div class="d-flex  col-md-6 justify-content-start"><h5>Package Information</h5></div>      
+                                    <div class="d-flex flex-row w-100 mb-3 mt-3 justify-content-center">
+                                        <div class="form-floating col-md-4 w-50">
+                                            <input class="form-control" type="text" id="packTitle" placeholder="">
+                                            <label for="packTitle">Title</label>
                                         </div>
-                                        <div class="d-flex justify-content-center mb-2">
-                                            <div class="form-floating w-100">
-                                                <textarea class="form-control" id="include" style="height: 150px;"></textarea>
-                                                <label for="include">Inclusion</label>
-                                            </div>
-                                            <div class="divider"></div>
-                                            <div class="form-floating w-100">
-                                                <textarea class="form-control" id="exclude" style="height: 150px;"></textarea>
-                                                <label for="exclude">Exclusion</label>
-                                            </div>
+                                        <div class="divider"></div>
+                                        <div class="form-floating col-md-4 w-50">
+                                            <input class="form-control" type="text" id="route" placeholder="">
+                                            <label for="route">Route (e.g., city1 > city2 > city3...)</label>
+                                        </div>
                                     </div>
-
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <h5>Price List</h5>
-                                            <!--price card-->
-                                            <div class="row-md-6">
-                                                <div class="rounded bg-secondary border border-success p-2 mb-3">
-                                                    <div>
-                                                        <h6>Price</h6>
-                                                        <!--insert close button somewhere here--> 
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-4"> 
-                                                            <div class="form-floating mb-2"> 
-                                                                <input type="text" class="form-control" id="curr" placeholder="">
-                                                                <label for="curr">Currency</label>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-8">
-                                                            <div class="form-floating mb-2"> 
-                                                                <input type="text" class="form-control" id="amount" placeholder="">
-                                                                <label for="amount">Amount</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>      
-                                                    <div class="row"> 
-                                                        <div class="col-md-12">
-                                                            <div class="form-floating">
-                                                                <input type="text" class="form-control" id="priceDesc" placeholder="">
-                                                                <label for="priceDesc">Description</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!--button that adds a price-->
-                                            <button id="btnAddPrice" class="rounded w-100 btn-success">Add Price</button>
+                                    <div class="d-flex justify-content-center mb-2">
+                                        <div class="form-floating w-100">
+                                            <textarea class="form-control" id="include" style="height: 150px;"></textarea>
+                                            <label for="include">Inclusion</label>
                                         </div>
-                                        <!--forms for tbl_flight-->
-                                        <div id="flightContainer" class="col-md-6 rounded">
-                                            <h5>Travel Dates</h5>
-                                            <div class="flight-box" id="flight containers">
-                                                <!--flight cards--> 
-                                                <div class="row d-flex bg-dark mb-2 p-1">
-                                                    <div class="form-floating col-md-4">
-                                                        <input class="form-control bg-secondary w-100" type="text" id="sched" placeholder="">
-                                                        <label for="sched">Travel Date</label>
-                                                    </div>
-                                                    <div class="divider"></div>
-                                                    <div class="form-floating col-md-8">
-                                                        <input class="form-control bg-secondary w-100" type="text" id="plane" placeholder="">
-                                                        <label for="plane">Airline</label>
-                                                    </div>
-                                                    <div class="form-floating col-md-2">
-                                                        <button type="button" class="btn-close float-end" aria-label="Close"></button>
-                                                    </div>
-                                                </div> 
-                                                <button id="" class="rounded w-100 btn-success">Add Flight</button>
-                                            </div> 
+                                        <div class="divider"></div>
+                                        <div class="form-floating w-100">
+                                            <textarea class="form-control" id="exclude" style="height: 150px;"></textarea>
+                                            <label for="exclude">Exclusion</label>
                                         </div>
-                                    </div>    
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Price List</h5>
+                                        <!--price card "spawns" here-->
+                                        <div id="priceContainer" class="row-md-6">                   
+                                        </div>
+                                        <!--button that adds a price-->
+                                        <button id="addPrice" class="rounded w-100 btn-success">Add Price</button>
+                                    </div>
+                                    <!--forms for tbl_flight-->
+                                    <div class="col-md-6 rounded">
+                                        <h5>Travel Dates</h5>
+                                        <!--flight cards "spawns" here--> 
+                                        <div class="flight-box" id="flightContainer">     
+                                        </div> 
+                                        <button id="addFlight" class="rounded w-100 btn-success">Add Flight</button>
+                                    </div>
+                                </div>    
                             </div>                                                          
                     </div>
-                    <div class="divider m-1"></div>
+                    <div class="divider m-3"></div>
 
                     <!--form for itineraries goes here-->  
                     <div class="col-md-6">
                         <!--form for tbl_price-->
                         <!--forms for tbl-itineraries--> 
-                        <div class="row-md-6 p-1">
-                            <div class="day-card bg-secondary p-4">
+                        <div class="row-md-6 border-success">
+                            <div class="rounded bg-secondary mb-2 p-4">
                                 <h6>ITINERARY PLANNER</h6>
                             </div>
                             <div id="dayContainer">
@@ -283,10 +240,7 @@ session_start(); // Start the session
                             <button class="rounded w-100 btn-success" id="addDayBtn">Add Day</button>        
                         </div>       
                     </div>       
-            </div>
-            <br>
-            <br>
-            <br>
+                </div>
             <br>
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
