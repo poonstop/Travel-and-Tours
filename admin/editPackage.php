@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Admin Dashboard</title>
+    <title>Package</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -60,7 +61,7 @@
             </div>
             <div class="navbar-nav w-100">
                 <!--Booking-->
-                <a href="" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
+                <a href="admin.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
                 <!--User Management-->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>User Management</a>
@@ -70,7 +71,7 @@
                     </div>
                 </div>
                 <!--Travel package management-->
-                <a href="package.html" class="nav-item nav-link">
+                <a href="package.php" class="nav-item nav-link active">
                     <i class="fa fa-th me-2"></i>
                     Package Management</a>
                 <!--Reports-->
@@ -78,7 +79,7 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="bookinfolist.html" class="dropdown-item">Booking history</a>
-                        <a href="itineraryreport.html" class="dropdown-item">Itinerary Reports</a> 
+                        <a href="itineraryreport.php" class="dropdown-item">Itinerary Reports</a> 
                     </div>
                 </div>
             </div>
@@ -96,8 +97,11 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <h2 class="text-primary m-2">Reinjan Travel and Tours</h3>
+                <h2 class="text-primary m-2">Reinjan Package Editor</h3>
                 <div class="navbar-nav align-items-center ms-auto">
+                    <div class="row">
+                        <a href="addpackage.php" class="h5 button bg-success rounded">Add Package</a>
+                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-envelope me-lg-2"></i>
@@ -140,7 +144,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                            <span class="d-none d-lg-inline-flex">Notification</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
@@ -180,93 +184,9 @@
             <div class="container-fluid pt-4 px-4">
                 <div class="package-container-wrapper">
                     <!--this is where to insert the package cards-->
-                    <div class="package-container">
-                       
-                       <div class="package-card" style="background-image: url('../img/osaka.jpg')">
-                            <!--This can be used to display travel package-->  
-                            <!--package title and description-->
-                            <div class="row">
-                                <div class="title">
-                                    <p>Charming Japan</p>
-                                </div>
-                                <div class="description">
-                                    <p class="mb-2">Tokyo || Mount Fuji || Osaka</p>
-                                </div>
-                            </div>
-                             <!--button redirect goes here-->
-                           
-                            <div class="row">
-                                <a href="booking.html" class="button">Book Now</a>
-                            </div>   
-                        </div> 
-
-                        <div class="package-card" style="background-image: url('../img/SalamancaCathedral.jpg')">
-                            <!--This can be used to display travel package-->  
-                            <!--package title and description-->
-                            <div class="row">
-                                <div class="title">
-                                    <p>Memento Europa</p>
-                                </div>
-                                <div class="description">
-                                    <p class="mb-2">Portugal || Spain || Andora || Paris</p>
-                                </div>
-                            </div>
-                             <!--Image goes here-->
-                           
-                            <div class="row">
-                                <a href="#" class="button">Book Now</a>
-                            </div>   
-                        </div> 
-                        <div class="package-card" style="background-image: url('../img/hokkaido.jpg')">
-                            <!--This can be used to display travel package-->  
-                            <!--package title and description-->
-                            <div class="row">
-                                <div class="title">
-                                    <p>7D4N Hokkaido</p>
-                                </div>
-                                <div class="description">
-                                    <p class="mb-2">Tokyo || Hokkaido</p>
-                                </div>
-                            </div>
-                             <!--Image goes here-->
-                           
-                            <div class="row">
-                                <a href="#" class="button">Book Now</a>
-                            </div>   
-                        </div> 
-
-                        <div class="package-card" style="background-image: url('../img/mtfuji.jpg')">
-                            <!--This can be used to display travel package-->  
-                            <!--package title and description-->
-                            <div class="row">
-                                <div class="title">
-                                    <p>6D5N Tour Japan</p>
-                                </div>
-                                <div class="description">
-                                    <p class="mb-2">Tokyo || Mount Fuji || Osaka || USJ</p>
-                                </div>
-                            </div>
-                             <!--Image goes here-->
-                           
-                            <div class="row">
-                                <a href="#" class="button">Book Now</a>
-                            </div>   
-                        </div> 
-                        <div class="package-card" style="background-image: url('../img/osaka.jpg')">
-                            <div class="row">
-                                <div class="title">
-                                    <p>Charming Japan</p>
-                                </div>
-                                <div class="description">
-                                    <p class="mb-2">Tokyo || Mount Fuji || Osaka</p>
-                                </div>
-                            </div>
-                             <!--Image goes here-->
-                           
-                            <div class="row">
-                                <a href="#" class="button">Book Now</a>
-                            </div>   
-                        </div> 
+                    <div class="package-container" id="packContainer">
+                       <!--Package card to be itierated goes here-->
+                  
                     </div>  
                 </div>
             </div>
@@ -307,7 +227,8 @@
     <script src="../lib/tempusdominus/js/moment.min.js"></script>
     <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
+    <!--Custom Javascript-->
+    <script src="js-files\viewPackage-pack.js"></script>
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
 </body>

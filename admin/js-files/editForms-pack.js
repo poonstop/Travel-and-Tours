@@ -2,6 +2,7 @@ $(document).ready(function(){
     //adds Day Card
     //if got enough time, add clear and remove button below the day cards and add clear btn for each card
     function addDayCard() {
+        
         var dayCount = $('.day-card').length + 1;//sets the value of the day card, is referenced by the JSON array
         $('.day-card .btn-close').remove();
         //contains the HTML to be repeatedly displayed as a form
@@ -85,7 +86,7 @@ $(document).ready(function(){
                     </div>
                     <div class="col-md-4  w-50">
                         <div class="form-floating mb-2">
-                            <input class="form-control" type="date" id="schedEnd${flightCount}" placeholder="">
+                            <input class="form-control" type="date" id="schedEnd${flightCount}" placeholder="" value="${flightCount}">
                             <label for="schedEnd${flightCount}">End Date</label>                                                      
                         </div>
                     </div>        

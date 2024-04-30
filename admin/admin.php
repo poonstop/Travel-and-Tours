@@ -1,14 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Package</title>
+    <title>Admin Dashboard</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
     <!-- Favicon -->
     <link href="../img/favicon.ico" rel="icon">
 
@@ -61,7 +59,7 @@
             </div>
             <div class="navbar-nav w-100">
                 <!--Booking-->
-                <a href="admin.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
+                <a href="" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
                 <!--User Management-->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>User Management</a>
@@ -71,7 +69,7 @@
                     </div>
                 </div>
                 <!--Travel package management-->
-                <a href="package.html" class="nav-item nav-link active">
+                <a href="package.php" class="nav-item nav-link">
                     <i class="fa fa-th me-2"></i>
                     Package Management</a>
                 <!--Reports-->
@@ -79,7 +77,7 @@
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="bookinfolist.html" class="dropdown-item">Booking history</a>
-                        <a href="itineraryreport.html" class="dropdown-item">Itinerary Reports</a> 
+                        <a href="itineraryreport.php" class="dropdown-item">Itinerary Reports</a> 
                     </div>
                 </div>
             </div>
@@ -97,11 +95,8 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <h2 class="text-primary m-2">Reinjan Package Editor</h3>
+                <h2 class="text-primary m-2">Reinjan Travel and Tours</h3>
                 <div class="navbar-nav align-items-center ms-auto">
-                    <div class="row">
-                        <a href="addpackage.php" class="h5 button bg-success rounded">Add Package</a>
-                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-envelope me-lg-2"></i>
@@ -144,7 +139,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notification</span>
+                            <span class="d-none d-lg-inline-flex">Notificatin</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
@@ -187,10 +182,7 @@
                     <div class="package-container">
                        
                        <div class="package-card" style="background-image: url('../img/osaka.jpg')">
-                            <!--This can be used to display travel package-->
-                            <div class="row">
-                                <a href="#" class="btn-close bg-danger"></a>
-                            </div> 
+                            <!--This can be used to display travel package-->  
                             <!--package title and description-->
                             <div class="row">
                                 <div class="title">
@@ -203,15 +195,12 @@
                              <!--button redirect goes here-->
                            
                             <div class="row">
-                                <a href="#" class="button bg-success">Edit Package</a>
-                            </div>    
+                                <a href="booking.html" class="button">Book Now</a>
+                            </div>   
                         </div> 
 
                         <div class="package-card" style="background-image: url('../img/SalamancaCathedral.jpg')">
-                            <!--This can be used to display travel package-->
-                            <div class="row">
-                                <a href="#" class="btn-close bg-danger"></a>
-                            </div>   
+                            <!--This can be used to display travel package-->  
                             <!--package title and description-->
                             <div class="row">
                                 <div class="title">
@@ -224,14 +213,11 @@
                              <!--Image goes here-->
                            
                             <div class="row">
-                                <a href="#" class="button bg-success">Edit Package</a>
+                                <a href="#" class="button">Book Now</a>
                             </div>   
                         </div> 
-                        <div class="package-card" style="background-image: url('../img/hokkaido.jpg')">  <!-- not sure if i should put ../ -->
-                            <!--This can be used to display travel package-->
-                            <div class="row">
-                                <a href="#" class="btn-close bg-danger"></a>
-                            </div>   
+                        <div class="package-card" style="background-image: url('../img/hokkaido.jpg')">
+                            <!--This can be used to display travel package-->  
                             <!--package title and description-->
                             <div class="row">
                                 <div class="title">
@@ -244,15 +230,12 @@
                              <!--Image goes here-->
                            
                             <div class="row">
-                                <a href="#" class="button bg-success">Edit Package</a>
-                            </div>  
+                                <a href="#" class="button">Book Now</a>
+                            </div>   
                         </div> 
 
                         <div class="package-card" style="background-image: url('../img/mtfuji.jpg')">
-                            <!--This can be used to display travel package-->
-                            <div class="row">
-                                <a href="#" class="btn-close bg-danger"></a>
-                            </div>   
+                            <!--This can be used to display travel package-->  
                             <!--package title and description-->
                             <div class="row">
                                 <div class="title">
@@ -265,13 +248,10 @@
                              <!--Image goes here-->
                            
                             <div class="row">
-                                <a href="#" class="button bg-success">Edit Package</a>
+                                <a href="#" class="button">Book Now</a>
                             </div>   
                         </div> 
                         <div class="package-card" style="background-image: url('../img/osaka.jpg')">
-                            <div class="row">
-                                <a href="#" class="btn-close bg-danger"></a>
-                            </div> 
                             <div class="row">
                                 <div class="title">
                                     <p>Charming Japan</p>
@@ -283,7 +263,7 @@
                              <!--Image goes here-->
                            
                             <div class="row">
-                                <a href="#" class="button bg-success">Edit Package</a>
+                                <a href="#" class="button">Book Now</a>
                             </div>   
                         </div> 
                     </div>  

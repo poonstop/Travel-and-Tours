@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Itinerary Report</title>
+    <title>Package</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -60,7 +61,7 @@
             </div>
             <div class="navbar-nav w-100">
                 <!--Booking-->
-                <a href="admin.html" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
+                <a href="admin.php" class="nav-item nav-link"><i class="fa fa-tachometer-alt me-2"></i>Book Now</a>
                 <!--User Management-->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-laptop me-2"></i>User Management</a>
@@ -70,13 +71,15 @@
                     </div>
                 </div>
                 <!--Travel package management-->
-                <a href="blank.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Package Management</a>
+                <a href="package.php" class="nav-item nav-link active">
+                    <i class="fa fa-th me-2"></i>
+                    Package Management</a>
                 <!--Reports-->
                 <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
-                    <div class="dropdown-menu bg-transparent border-0 show">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
+                    <div class="dropdown-menu bg-transparent border-0">
                         <a href="bookinfolist.html" class="dropdown-item">Booking history</a>
-                        <a href="itineraryreport.html" class="dropdown-item active">Itinerary Reports</a> 
+                        <a href="itineraryreport.php" class="dropdown-item">Itinerary Reports</a> 
                     </div>
                 </div>
             </div>
@@ -94,10 +97,11 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control bg-dark border-0" type="search" placeholder="Search">
-                </form>
+                <h2 class="text-primary m-2">Reinjan Package Editor</h3>
                 <div class="navbar-nav align-items-center ms-auto">
+                    <div class="row">
+                        <a href="addpackage.php" class="h5 button bg-success rounded">Add Package</a>
+                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-envelope me-lg-2"></i>
@@ -140,7 +144,7 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-bell me-lg-2"></i>
-                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                            <span class="d-none d-lg-inline-flex">Notification</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
@@ -169,22 +173,25 @@
                         <div class="dropdown-menu dropdown-menu-end bg-secondary border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="#" class="dropdown-item">Log Out</a>
+                            <a href="nouser.html" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>
             </nav>
             <!-- Navbar End -->
 
-            
+            <!-- Display packages here -->
             <div class="container-fluid pt-4 px-4">
-                <div class="row vh-100 bg-secondary rounded align-items-center justify-content-center mx-0">
-                   <!--form goes here-->
-                       
-                   
+                <div class="package-container-wrapper">
+                    <!--this is where to insert the package cards-->
+                    <div class="package-container" id="packContainer">
+                       <!--Package card to be itierated goes here-->
+                  
+                    </div>  
                 </div>
             </div>
-    
+            <!-- packages End -->
+
 
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
@@ -220,7 +227,8 @@
     <script src="../lib/tempusdominus/js/moment.min.js"></script>
     <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
+    <!--Custom Javascript-->
+    <script src="js-files\viewPackage-pack.js"></script>
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
 </body>
