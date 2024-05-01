@@ -64,8 +64,6 @@ $(document).ready(function() {
             $(this).closest('.day-card').remove();
         });
     }
-
-
     // Function to add a price card
     function addPriceCard(currency = '', price = '', priceDesc = '') {
         var priceCount = $('.price-card-add').length + 1;
@@ -130,18 +128,64 @@ $(document).ready(function() {
                             <input class="form-control" type="date" id="schedEnd${flightCount}" placeholder="" value="${end}">
                             <label for="schedEnd${flightCount}">End Date</label>                                                      
                         </div>
-                    </div>        
-                </div>
-                <div class="row">
-                    <div class="d-flex justify-content-end">
-                        <button id="clearflightBtn${flightCount}" class="btn btn-danger clearflightBtn">Clear</button>
+                        </div>        
                     </div>
-                </div>
-            </div> 
-        `;
+                    <div class="row">
+                        <div class="d-flex justify-content-end">
+                            <button id="clearflightBtn${flightCount}" class="btn btn-danger clearflightBtn">Clear</button>
+                        </div>
+                    </div>
+                </div> 
+            `;
         $('#flightContainer').append(flightCardHtml);
     }
-
+    
+        // Function to fetch price data from PHP script
+        function fetchPriceData(packCode) {
+            $.ajax({
+                url: 'php-files/GET-edit/price.php',
+                type: 'GET',
+                data: { pack_code: packCode },
+                dataType: 'json',
+                success: function(data) {
+                    // Log the received price data
+                    console.log(data);
+        
+                    // Loop through the data to populate price cards
+                    for (var i = 0; i < data.length; i++) {
+                        addPriceCard(data[i]['currency'], data[i]['price'], data[i]['price_desc']);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Log any errors that occur during the AJAX request
+                    console.error('Error fetching price data:', error);
+                }
+            });
+        }
+        
+        // Function to fetch flight data from PHP script
+        function fetchFlightData(packCode) {
+            $.ajax({
+                url: 'php-files/GET-edit/flight.php',
+                type: 'GET',
+                data: { pack_code: packCode },
+                dataType: 'json',
+                success: function(data) {
+                    // Log the received flight data
+                    console.log(data);
+        
+                    // Loop through the data to populate flight cards
+                    for (var i = 0; i < data.length; i++) {
+                        addFlightCard(data[i]['flight_info'], data[i]['travel_start'], data[i]['travel_end']);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Log any errors that occur during the AJAX request
+                    console.error('Error fetching flight data:', error);
+                }
+            });
+        }
+        
     // Function to fetch itinerary data from PHP script
     function fetchItineraryData(packCode) {
         $.ajax({
@@ -165,52 +209,6 @@ $(document).ready(function() {
         });
     }
     
-    // Function to fetch price data from PHP script
-    function fetchPriceData(packCode) {
-        $.ajax({
-            url: 'php-files/GET-edit/price.php',
-            type: 'GET',
-            data: { pack_code: packCode },
-            dataType: 'json',
-            success: function(data) {
-                // Log the received price data
-                console.log(data);
-    
-                // Loop through the data to populate price cards
-                for (var i = 0; i < data.length; i++) {
-                    addPriceCard(data[i]['currency'], data[i]['price'], data[i]['price_desc']);
-                }
-            },
-            error: function(xhr, status, error) {
-                // Log any errors that occur during the AJAX request
-                console.error('Error fetching price data:', error);
-            }
-        });
-    }
-    
-    // Function to fetch flight data from PHP script
-    function fetchFlightData(packCode) {
-        $.ajax({
-            url: 'php-files/GET-edit/flight.php',
-            type: 'GET',
-            data: { pack_code: packCode },
-            dataType: 'json',
-            success: function(data) {
-                // Log the received flight data
-                console.log(data);
-    
-                // Loop through the data to populate flight cards
-                for (var i = 0; i < data.length; i++) {
-                    addFlightCard(data[i]['flight_info'], data[i]['travel_start'], data[i]['travel_end']);
-                }
-            },
-            error: function(xhr, status, error) {
-                // Log any errors that occur during the AJAX request
-                console.error('Error fetching flight data:', error);
-            }
-        });
-    }
-    
     // Get the pack_code from the URL parameters
     const urlParams = new URLSearchParams(window.location.search);
     const packCode = urlParams.get('pack_code');
@@ -222,63 +220,5 @@ $(document).ready(function() {
         fetchFlightData(packCode);
     } else {
         console.error('Pack code not found in URL parameters');
-    }
-    
-    // Event listener to add a new day card
-    $('#addDayBtn').click(function() {
-        var numberOfDayCards = $('.day-card').length + 1;
-        addDayCard(numberOfDayCards, { meals: '', activity: '', poi: '', optional: '', hotel: '' });
-    });
-
-    // Event listener to add a new price card
-    $('#addPrice').click(function() {
-        addPriceCard();
-    });
-
-    // Event listener to add a new flight card
-    $('#addFlight').click(function() {
-        addFlightCard();
-    });
-
-    // Event listener for clear buttons on day cards
-    $(document).on('click', '.clearBtn', function() {
-        var dayCount = $(this).data('day');
-        clearDayCard(dayCount);
-    });
-
-    // Event listener for clear buttons on flight cards
-    $(document).on('click', '.clearflightBtn', function() {
-        var flightCount = $(this).attr('id').replace('clearflightBtn', '');
-        clearFlightCard(flightCount);
-    });
-
-    // Event listener for clear buttons on price cards
-    $(document).on('click', '.clearPriceBtn', function() {
-        var priceCount = $(this).attr('id').replace('clearPriceBtn', '');
-        clearPriceCard(priceCount);
-    });
-
-    // Function to clear values within a specific day card
-    function clearDayCard(dayCount) {
-        $('#meal' + dayCount).val('');
-        $('#acts' + dayCount).val('');
-        $('#areas' + dayCount).val('');
-        $('#optionAct' + dayCount).val('');
-        $('#hotel' + dayCount).val('');
-        $('#hotelstat' + dayCount).val('N/A');
-    }
-
-    // Function to clear values within a specific flight card
-    function clearFlightCard(flightCount) {
-        $('#plane' + flightCount).val('');
-        $('#schedStart' + flightCount).val('');
-        $('#schedEnd' + flightCount).val('');
-    }
-
-    // Function to clear values within a specific price card
-    function clearPriceCard(priceCount) {
-        $('#curr' + priceCount).val('');
-        $('#amount' + priceCount).val('');
-        $('#priceDesc' + priceCount).val('');
     }
 });
