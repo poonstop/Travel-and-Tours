@@ -1,37 +1,55 @@
+<?php
+// Retrieve the pack_code from the URL
+if(isset($_GET['pack_code'])) {
+    $packCode = $_GET['pack_code'];
+
+    // Include the database connection script
+    require_once("../conn.php");
+
+    try {
+        // Prepare SQL statement to fetch package details based on pack_code
+        $stmt = $conn->prepare("SELECT * FROM tbl_pack WHERE pack_code = ?");
+        $stmt->execute([$packCode]);
+        $packageData = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Close the database connection
+        $conn = null;
+    } catch(PDOException $e) {
+        // Handle any errors
+        echo "Error: " . $e->getMessage();
+    }
+} else {
+    // Redirect to an error page or handle the case when pack_code is not provided
+    header("Location: error.php");
+    exit(); // Terminate the script execution
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
-    <title>Package</title>
+    <title>Package Manager</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
     <!-- Favicon -->
     <link href="../img/favicon.ico" rel="icon">
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap" rel="stylesheet"> 
-    
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
     <!-- Libraries Stylesheet -->
     <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="../lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Template Stylesheet -->
     <link href="../css/style.css" rel="stylesheet">
 </head>
-
 <body>
     <div class="container-fluid position-relative d-flex p-0">
         <!-- Spinner Start -->
@@ -71,15 +89,13 @@
                     </div>
                 </div>
                 <!--Travel package management-->
-                <a href="package.php" class="nav-item nav-link active">
-                    <i class="fa fa-th me-2"></i>
-                    Package Management</a>
+                <a href="package.php" class="nav-item nav-link  active"><i class="fa fa-th me-2"></i>Package Management</a>
                 <!--Reports-->
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="bookinfolist.html" class="dropdown-item">Booking history</a>
-                        <a href="itineraryreport.php" class="dropdown-item">Itinerary Reports</a> 
+                        <a href="itineraryreport.html" class="dropdown-item">Itinerary Reports</a> 
                     </div>
                 </div>
             </div>
@@ -99,9 +115,6 @@
                 </a>
                 <h2 class="text-primary m-2">Reinjan Package Editor</h3>
                 <div class="navbar-nav align-items-center ms-auto">
-                    <div class="row">
-                        <a href="addpackage.php" class="h5 button bg-success rounded">Add Package</a>
-                    </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
                             <i class="fa fa-envelope me-lg-2"></i>
@@ -179,20 +192,80 @@
                 </div>
             </nav>
             <!-- Navbar End -->
-
-            <!-- Display packages here -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="package-container-wrapper">
-                    <!--this is where to insert the package cards-->
-                    <div class="package-container" id="packContainer">
-                       <!--Package card to be itierated goes here-->
-                  
-                    </div>  
+            <div class="container-fluid pt-4 px-4 ">
+                <div class="d-flex justify-content-end mb-4">
+                    <button id="clearPack" class="btn btn-danger me-2">Clear Package</button>
+                    <button id="saveBtn" class="btn btn-success">Save Package</button><!--If possible, make this floating-->
                 </div>
-            </div>
-            <!-- packages End -->
+                <div class="booking-container p-4">
+                    <!--General package information goes here-->
+                    <div class="col-md-6">
+                            <div class="rounded h-100 mr-3">  
+                                <!--form for tbl_pack-->
+                                <div class="row rounded bg-secondary p-2 mb-3">
+                                <div class="d-flex  col-md-6 justify-content-start"><h5>Package Information</h5></div>      
+                                    <div class="d-flex flex-row w-100 mb-3 mt-3 justify-content-center">
+                                        <div class="form-floating col-md-4 w-50">
+                                            <input class="form-control" type="text" id="packTitle" placeholder=""  value="<?php echo $packageData['title']; ?>">
+                                            <label for="packTitle">Title</label>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="form-floating col-md-4 w-50">
+                                            <input class="form-control" type="text" id="route" placeholder=""  value="<?php echo $packageData['locations']; ?>">
+                                            <label for="route">Route (e.g., city1 > city2 > city3...)</label>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-center mb-2">
+                                        <div class="form-floating w-100">
+                                            <textarea class="form-control" id="include" style="height: 150px;"><?php echo $packageData['inclusion']; ?></textarea>
+                                            <label for="include">Inclusion</label>
+                                        </div>
+                                        <div class="divider"></div>
+                                        <div class="form-floating w-100">
+                                            <textarea class="form-control" id="exclude" style="height: 150px;"><?php echo $packageData['exclusion']; ?></textarea>
+                                            <label for="exclude">Exclusion</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Price List</h5>
+                                        <!--price card "spawns" here-->
+                                        <div id="priceContainer" class="row-md-6">                   
+                                        </div>
+                                        <!--button that adds a price-->
+                                        <button id="addPrice" class="rounded w-100 btn-success">Add Price</button>
+                                    </div>
+                                    <!--forms for tbl_flight-->
+                                    <div class="col-md-6 rounded">
+                                        <h5>Travel Dates</h5>
+                                        <!--flight cards "spawns" here--> 
+                                        <div class="flight-box" id="flightContainer">     
+                                        </div> 
+                                        <button id="addFlight" class="rounded w-100 btn-success">Add Flight</button>
+                                    </div>
+                                </div>    
+                            </div>                                                          
+                    </div>
+                    <div class="divider m-3"></div>
 
-
+                    <!--form for itineraries goes here-->  
+                    <div class="col-md-6">
+                        <!--form for tbl_price-->
+                        <!--forms for tbl-itineraries--> 
+                        <div class="row-md-6 border-success">
+                            <div class="rounded bg-secondary mb-2 p-4">
+                                <h6>ITINERARY PLANNER</h6>
+                            </div>
+                            <div id="dayContainer">
+                                <!--day cards here-->
+                            </div>
+                            <!--button for adding a new itinerary-->
+                            <button class="rounded w-100 btn-success" id="addDayBtn">Add Day</button>        
+                        </div>       
+                    </div>       
+                </div>
+            <br>
             <!-- Footer Start -->
             <div class="container-fluid pt-4 px-4">
                 <div class="bg-secondary rounded-top p-4">
@@ -209,12 +282,9 @@
                 </div>
             </div>
             <!-- Footer End -->
+
         </div>
-        <!-- Content End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+          <!-- Content End -->
     </div>
 
     <!-- JavaScript Libraries -->
@@ -227,8 +297,16 @@
     <script src="../lib/tempusdominus/js/moment.min.js"></script>
     <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <!--Custom Javascript-->
-    <script src="js-files\viewPackage-pack.js"></script>
+    <!-- Template Javascript -->
+    <script src="../js/main.js"></script>
+
+    
+    <!--custom javaScript-->
+    <script src="js-files/dataconn-pack.js"></script>
+    <script src="js-files/editPackage-pack.js"></script>
+    <script src="editTest.js"></script>
+
+
     <!-- Template Javascript -->
     <script src="../js/main.js"></script>
 </body>

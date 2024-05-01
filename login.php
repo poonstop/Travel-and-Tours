@@ -8,7 +8,7 @@
         }
     }
 
-    require("connection.php");
+    require("conn.php");
     if(isset($_POST['uname'])){
 
         $uname = $_POST['uname'];
