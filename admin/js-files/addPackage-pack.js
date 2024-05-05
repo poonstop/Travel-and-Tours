@@ -108,6 +108,6 @@ $(document).ready(function() {
                 console.error('Error:', error);
                 console.log('XHR:', xhr);
             }
-        });
+        }); 
     });
 });

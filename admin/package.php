@@ -228,7 +228,7 @@
     <script src="../lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="../lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
     <!--Custom Javascript-->
-    <script src="js-files\test.js"></script>
+    <script src="js-files\viewPackage-pack.js"></script>
 
     
     <!-- Template Javascript -->

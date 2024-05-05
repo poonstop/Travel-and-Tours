@@ -1,6 +1,19 @@
 <?php
 require_once '../../conn.php'; // Include your database connection file
+/*fix this shit later, add a foreach loop with a nested condition;
+foreach(){
+    if($itineraryID === itinerary_id){//if there is a matching itinerary_id within the records of tbl_itinerary
+        //updates the already existing recods, excluding the pack_code
+        
+    }else{
+        //inserts new records into the database, including the pack_code
+        INSERT INTO tbl_itinerary(meals, hotel_stat, hotel, activity, poi, optional) VALUES (:meals, :hotelStat, :hotel, :activity, :poi, :optional) WHERE itinerary_id = :itinerary_id;
 
+    }
+
+}
+
+*/
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get the data from the POST request for tbl_pack
     $packCode = $_POST['packCode'];
@@ -42,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     foreach ($flightListData as $flightData) {
         $stmtFlight->execute([
             ':packCode' => $packCode,
-            ':flightCode' => $flightData['flight'], // Assuming 'flight' is the primary key for tbl_flight
+            ':flightCode' => $flightData['flight'], 
             ':travelStart' => $flightData['schedStart'],
             ':travelEnd' => $flightData['schedEnd'],
             ':flightInfo' => $flightData['plane']

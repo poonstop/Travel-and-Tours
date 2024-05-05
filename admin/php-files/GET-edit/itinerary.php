@@ -8,7 +8,7 @@ if(isset($_GET['pack_code'])) {
 
     try {
         // Prepare SQL statement to fetch itinerary data based on pack_code
-        $stmt = $conn->prepare("SELECT * FROM tbl_itinerary WHERE pack_code = ?");
+        $stmt = $conn->prepare("SELECT itinerary_id, meals, hotel_stat, hotel, activity, poi, optional FROM tbl_itinerary WHERE pack_code = ?");
         $stmt->execute([$packCode]);
         $itineraryData = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

@@ -9,10 +9,7 @@ $(document).ready(function() {
                     <div class="form-floating col-md-10  d-flex justify-content-start">
                         <h5>Day ${dayCount}</h5>
                     </div>
-                    <div class="form-floating col-md-2 d-flex justify-content-end">
-                        <button type="button" class="btn-close " aria-label="Close"></button>
-                    </div>
-                </div>
+                </div>  
                 <div class="day-row d-flex justify-content-center mb-2">
                     <div class="form-floating col-md-4 w-25">
                         <input class="form-control" type="text" id="meal${dayCount}" maxlength="5" value="${data['meals'] || ''}">
@@ -145,6 +142,11 @@ $(document).ready(function() {
     $('#addDayBtn').click(function() {
         var numberOfDayCards = $('.day-card').length + 1;
         addDayCard(numberOfDayCards, { meals: '', activity: '', poi: '', optional: '', hotel: '' });
+    });
+    // Event listener for deleting the latest day card
+    $('#deleteDayCardBtn').click(function() {
+        var latestDayCard = $('.day-card').last();
+        latestDayCard.remove();
     });
 
     // Event listener to add a new price card

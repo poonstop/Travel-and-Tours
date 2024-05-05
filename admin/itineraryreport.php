@@ -189,10 +189,9 @@
                                 <tr>
                                     <th scope="col">Package Code</th>
                                     <th scope="col">Title</th>
-                                    <th scope="col">Inclusion</th>
-                                    <th scope="col">Exclusion</th>
-                                    <!--include no of users booked into each package-->
-                                    <th scope="col">Action</th>
+                                    <th scope="col">Locations</th>
+                                    <th scope="col">No of Bookings</th>
+                                    <th scope="col">Total Earned</th>
                                 </tr>
                             </thead>
                             <tbody id="showPack">

@@ -1,31 +1,53 @@
 <?php
-// Retrieve the pack_code from the URL
-if(isset($_GET['pack_code'])) {
-    $packCode = $_GET['pack_code'];
+// Include the database connection script
+require_once("../../conn.php");
 
-    // Include the database connection script
-    require_once("../../conn.php");
+// Default SQL query to select all packages
+$sql = "SELECT * FROM tbl_pack";
 
-    try {
-        // Prepare SQL statement to fetch package details based on pack_code
-        $stmt = $conn->prepare("SELECT * FROM tbl_pack WHERE pack_code = ?");
-        $stmt->execute([$packCode]);
-        $packageData = $stmt->fetch(PDO::FETCH_ASSOC);
+// If search parameter is provided, modify the SQL query accordingly
+if(isset($_POST['search'])){
+    $search = $_POST['search'];
+    $sql .= " WHERE pack_name LIKE '%$search%'";
+}
 
-        // Close the database connection
-        $conn = null;
+try {
+    // Execute the SQL query
+    $stmt = $conn->query($sql);
+    $packages = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Return JSON response
-        header('Content-Type: application/json');
-        echo json_encode($packageData);
-        exit(); // Terminate the script execution
-    } catch(PDOException $e) {
-        // Handle any errors
-        echo "Error: " . $e->getMessage();
+    // Check if there are any packages
+    if($packages) {
+        // Iterate over packages and generate HTML
+        foreach ($packages as $package) {
+?>
+            <div class="package-card" style="background-image: url('../img/osaka.jpg')">
+                <div class="row">
+                    <a id="closeBtn" class="btn-close bg-danger"></a>
+                </div>
+                <div class="row">
+                    <div class="title" id="title">
+                        <p><?php echo $package['title']; ?></p>
+                    </div>
+                    <div class="description">
+                        <p class="mb-2" id="locations"><?php echo $package['locations']; ?></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Edit button with data-pack-code attribute -->
+                    <button class="button bg-success editBtn" data-pack-code="<?php echo $package['pack_code']; ?>">Edit Package</button>
+                </div>
+            </div>
+<?php
+        }
+    } else {
+        // If no packages found, display a message
+?>
+        <div class="no-record"><p>No Record</p></div>
+<?php
     }
-} else {
-    // Redirect to an error page or handle the case when pack_code is not provided
-    header("Location: error.php");
-    exit(); // Terminate the script execution
+} catch(PDOException $e) {
+    // Handle any errors
+    echo "Error: " . $e->getMessage();
 }
 ?>

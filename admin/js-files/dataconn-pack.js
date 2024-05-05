@@ -13,6 +13,7 @@ $(document).ready(function() {
                         <button type="button" class="btn-close " aria-label="Close"></button>
                     </div>
                 </div>
+                <h6>Itinerary ID: ${data['itinerary_id']}</h6> <!-- Added itinerary_id here -->
                 <div class="day-row d-flex justify-content-center mb-2">
                     <div class="form-floating col-md-4 w-25">
                         <input class="form-control" type="text" id="meal${dayCount}" maxlength="5" value="${data['meals'] || ''}">
@@ -53,8 +54,10 @@ $(document).ready(function() {
                         <label for="hotel${dayCount}">Hotel</label>
                     </div>
                 </div>
-                <div class="day-row d-flex justify-content-center mt-2">
-                    <button class="btn btn-danger clearBtn" data-day="${dayCount}">Clear</button>
+                <div class="row">
+                    <div class="d-flex justify-content-end">
+                        <button class="btn btn-danger clearBtn" data-day="${dayCount}">Clear</button>
+                    </div>
                 </div>
             </div>
         `;
@@ -65,11 +68,12 @@ $(document).ready(function() {
         });
     }
     // Function to add a price card
-    function addPriceCard(currency = '', price = '', priceDesc = '') {
+    function addPriceCard(priceCode = '', currency = '', price = '', priceDesc = '') {
         var priceCount = $('.price-card-add').length + 1;
         var priceCardHtml= `
             <div id="priceCard${priceCount}" class="price-card-add rounded bg-secondary p-2 mb-2">
                 <h6>Price ${priceCount}</h6>
+                <h6>Price Code: ${priceCode}</h6>
                 <div class="row">
                     <div class="col-md-6"> 
                         <div class="form-floating mb-2"> 
@@ -140,51 +144,54 @@ $(document).ready(function() {
         $('#flightContainer').append(flightCardHtml);
     }
     
-        // Function to fetch price data from PHP script
-        function fetchPriceData(packCode) {
-            $.ajax({
-                url: 'php-files/GET-edit/price.php',
-                type: 'GET',
-                data: { pack_code: packCode },
-                dataType: 'json',
-                success: function(data) {
-                    // Log the received price data
-                    console.log(data);
-        
-                    // Loop through the data to populate price cards
-                    for (var i = 0; i < data.length; i++) {
-                        addPriceCard(data[i]['currency'], data[i]['price'], data[i]['price_desc']);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    // Log any errors that occur during the AJAX request
-                    console.error('Error fetching price data:', error);
+    // Function to fetch price data from PHP script
+    function fetchPriceData(packCode) {
+        $.ajax({
+            url: 'php-files/GET-edit/price.php',
+            type: 'GET',
+            data: { pack_code: packCode },
+            dataType: 'json',
+            success: function(data) {
+                // Log the received price data
+                console.log('Received price data:', data);
+                
+                // Loop through the data to populate price cards
+                for (var i = 0; i < data.length; i++) {
+                    addPriceCard(data[i]['price_code'], data[i]['currency'], data[i]['price'], data[i]['price_desc']);
                 }
-            });
-        }
+               
+            },
+            error: function(xhr, status, error) {
+                // Log any errors that occur during the AJAX request
+                console.error('Error fetching price data:', error);
+            }
+        });
+    }
+ 
         
-        // Function to fetch flight data from PHP script
-        function fetchFlightData(packCode) {
-            $.ajax({
-                url: 'php-files/GET-edit/flight.php',
-                type: 'GET',
-                data: { pack_code: packCode },
-                dataType: 'json',
-                success: function(data) {
-                    // Log the received flight data
-                    console.log(data);
-        
-                    // Loop through the data to populate flight cards
-                    for (var i = 0; i < data.length; i++) {
-                        addFlightCard(data[i]['flight_info'], data[i]['travel_start'], data[i]['travel_end']);
-                    }
-                },
-                error: function(xhr, status, error) {
-                    // Log any errors that occur during the AJAX request
-                    console.error('Error fetching flight data:', error);
+
+    // Function to fetch flight data from PHP script
+    function fetchFlightData(packCode) {
+        $.ajax({
+            url: 'php-files/GET-edit/flight.php',
+            type: 'GET',
+            data: { pack_code: packCode },
+            dataType: 'json',
+            success: function(data) {
+                // Log the received flight data
+                console.log('Flight data:', data);
+    
+                // Loop through the data to populate flight cards
+                for (var i = 0; i < data.length; i++) {
+                    addFlightCard(data[i]['plane'], data[i]['travel_start'], data[i]['travel_end']);
                 }
-            });
-        }
+            },
+            error: function(xhr, status, error) {
+                // Log any errors that occur during the AJAX request
+                console.error('Error fetching flight data:', error);
+            }
+        });
+    }
         
     // Function to fetch itinerary data from PHP script
     function fetchItineraryData(packCode) {
@@ -195,7 +202,7 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(data) {
                 // Log the received itinerary data
-                console.log(data);
+                console.log('Itinerary data:', data);
                 
                 // Loop through the data to populate day cards
                 for (var i = 0; i < data.length; i++) {
@@ -221,4 +228,8 @@ $(document).ready(function() {
     } else {
         console.error('Pack code not found in URL parameters');
     }
+    
+     
+
+    
 });

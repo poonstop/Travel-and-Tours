@@ -15,8 +15,9 @@ if($result_set){
         <tr>
             <th><?=$row["pack_code"];?></th>
             <td><?=$row["title"];?></td>
-            <td><?=$row["inclusion"];?></td>
-            <td><pre><?=$row["exclusion"];?></pre></td>
+            <td><?=$row["locations"];?></td>
+            <td><pre>Number of availers</pre></td>
+            <td><pre>Initial Income</pre></td>
         </tr>
         <?php
     }

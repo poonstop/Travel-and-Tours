@@ -95,7 +95,7 @@ if(isset($_GET['pack_code'])) {
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="far fa-file-alt me-2"></i>Reports</a>
                     <div class="dropdown-menu bg-transparent border-0">
                         <a href="bookinfolist.html" class="dropdown-item">Booking history</a>
-                        <a href="itineraryreport.html" class="dropdown-item">Itinerary Reports</a> 
+                        <a href="itineraryreport.php" class="dropdown-item">Itinerary Reports</a> 
                     </div>
                 </div>
             </div>
@@ -261,6 +261,7 @@ if(isset($_GET['pack_code'])) {
                                 <!--day cards here-->
                             </div>
                             <!--button for adding a new itinerary-->
+                            <button class="rounded w-100 btn-danger mb-2" id="deleteDayCardBtn">Remove Day</button>        
                             <button class="rounded w-100 btn-success" id="addDayBtn">Add Day</button>        
                         </div>       
                     </div>       
@@ -303,8 +304,8 @@ if(isset($_GET['pack_code'])) {
     
     <!--custom javaScript-->
     <script src="js-files/dataconn-pack.js"></script>
-    <script src="js-files/editPackage-pack.js"></script>
-    <script src="editTest.js"></script>
+    <script src="js-files/editForms-pack.js"></script>
+    <script src="js-files/update.js"></script>
 
 
     <!-- Template Javascript -->
