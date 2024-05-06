@@ -2,7 +2,16 @@
 <?php
 //FUNCTION FOR SIGNUP
 // Include the connection file
-require_once 'conn.php';
+$servername = "localhost"; // servername
+$username = "username"; //  username
+$password = "password"; //  password
+$dbname = "db_ttms"; //  database name
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 
 // Enable error reporting for PDO
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -17,6 +26,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $password = $_POST["password"];
     $confirm_password = $_POST["confirm_password"];
+
+    $stmt = $conn->prepare("INSERT INTO users (username, password, email) VALUES (?, ?, ?)");
+    $stmt->bind_param("sss", $username, $password, $email);
 
     // Check if passwords match
     if ($password!= $confirm_password) {
@@ -43,14 +55,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->execute([$username, $lname, $fname, $mi, $email, $hashed_password]);
 
     // Check if the data was inserted successfully
-    if ($stmt->rowCount() > 0) {
-        echo "User created successfully.";
+    if ($stmt->execute() === TRUE) {
+        $success_message = "User registered successfully.";
     } else {
-        echo "Error: ". $sql. "<br>". $conn->error;
+        $error_message = "Error: " . $stmt->error;
     }
 
-    // Close the prepared statement and the connection
-    $stmt = null;
-    $conn = null;
+    // Close statement
+    $stmt->close();
 }
+
+// Close connection
+$conn->close();
 ?>
