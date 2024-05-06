@@ -5,7 +5,7 @@ require_once("../../../conn.php");
 // Check if pack_code is provided
 if(isset($_GET['pack_code'])) {
     $packCode = $_GET['pack_code']; 
-    error_log('PHP packCode: ' . $packCode, 0);
+    error_log('price GET packCode: ' . $packCode, 0);
     try {
         // Prepare SQL statement to fetch price data based on pack_code
         $stmt = $conn->prepare("SELECT price_code, currency, price, price_desc FROM tbl_price WHERE pack_code = ?");

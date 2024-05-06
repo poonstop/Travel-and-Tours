@@ -111,7 +111,11 @@ $(document).ready(function(){
             <div class="row">
                 <div class="col-md-6"> 
                     <div class="form-floating mb-2"> 
-                        <input type="text" class="form-control" id="curr${priceCount}" placeholder="" maxlength=4>
+                        <select type="text" class="form-select" id="curr${priceCount}" placeholder="">
+                            <option value="PHP" id="php">PHP</option>
+                            <option value="USD" id="usd">USD</option>
+                            <option value="EUR" id="eur">EUR</option>
+                        </select>
                         <label for="curr${priceCount}">Currency</label>
                     </div>
                 </div>

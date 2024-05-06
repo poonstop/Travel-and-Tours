@@ -283,8 +283,6 @@ session_start(); // Start the session
     <script src="js-files/addPackage-pack.js"></script><!--main JS script-->
     <!--<script src="js-files/test.js"></script>-->
     <script src="js-files/addForms-pack.js"></script><!--addsforms -->
-    <script src="js-files/addPrices-pack.js"></script><!--addPrices -->
-    <script src="js-files/addFlights-pack.js"></script><!--addFlights -->
     <script src="php-files/add-tblpack.php"></script><!--add to database-->
 
 

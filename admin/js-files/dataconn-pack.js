@@ -45,6 +45,7 @@ $(document).ready(function() {
                             <option value="Check-Out" id="checkout" ${data['hotel_stat'] === 'Check-Out' ? 'selected' : ''}>Check-Out</option>
                         </select>
                         <label for="hotelstat${dayCount}">Hotel Status</label>
+                        
                     </div>
                     <div class="col-md-2 text-center">
                         <p id="verb">To</p>
@@ -72,8 +73,8 @@ $(document).ready(function() {
         var priceCount = $('.price-card-add').length + 1;
         var priceCardHtml= `
             <div id="priceCard${priceCount}" class="price-card-add rounded bg-secondary p-2 mb-2">
-                <h6>Price ${priceCount}</h6>
-                <h6>Price Code: ${priceCode}</h6>
+                <h5>Price ${priceCount}</h5>
+                <h6 id="priceCode">${priceCode}</h6>
                 <div class="row">
                     <div class="col-md-6"> 
                         <div class="form-floating mb-2"> 
@@ -115,7 +116,10 @@ $(document).ready(function() {
                 <div class="row">
                     <div class="mb-2">
                         <div class="form-floating">
-                            <input type="text" class="form-control" id="plane${flightCount}" placeholder="" value="${plane}">
+                            <select class="form-select" id="plane${flightCount}">
+                                <option value="Airplane 1" ${plane === 'Airplane 1' ? 'selected' : ''}>Airplane 1</option>
+                                <option value="Airplane 2" ${plane === 'Airplane 2' ? 'selected' : ''}>Airplane 2</option>
+                            </select>
                             <label for="plane${flightCount}">Airline Plane</label>
                         </div>
                     </div>
@@ -228,8 +232,4 @@ $(document).ready(function() {
     } else {
         console.error('Pack code not found in URL parameters');
     }
-    
-     
-
-    
 });

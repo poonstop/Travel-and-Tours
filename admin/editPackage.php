@@ -303,9 +303,9 @@ if(isset($_GET['pack_code'])) {
 
     
     <!--custom javaScript-->
-    <script src="js-files/dataconn-pack.js"></script>
+    <script src="js-files/showdata.js"></script>
     <script src="js-files/editForms-pack.js"></script>
-    <script src="js-files/update.js"></script>
+    <script src="js-files/edit.js"></script>
 
 
     <!-- Template Javascript -->

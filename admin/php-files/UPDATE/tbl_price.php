@@ -1,51 +1,71 @@
 <?php
 require_once '../../../conn.php';
 
-// Check if data is received from AJAX
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $packCode = $_POST['packCode']; 
+    $dayCardData = json_decode($_POST['dayData'], true);
+    $priceCardData = json_decode($_POST['priceData'], true);
+    $flightCardData = json_decode($_POST['flightData'], true);
 
-    // Check if priceCardData is set and not empty
-    if (isset($_POST['priceData']) && !empty($_POST['priceData'])) {
-        $packCode = $_POST['packCode']; 
-        $priceCardData = json_decode($_POST['priceData'], true);
+    if (!empty($dayCardData) && !empty($priceCardData) && !empty($flightCardData)) {
+        try {
+            $conn->beginTransaction();
+            
+            // Update or insert day card data
+            foreach ($dayCardData as $dayData) {
+                $stmt = $conn->prepare("SELECT * FROM tbl_itinerary WHERE pack_code = ? AND itinerary_id = ?");
+                $stmt->execute([$packCode, $dayData['itinerary_id']]);
+                $dayRecord = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                if ($dayRecord) {
+                    $stmt = $conn->prepare("UPDATE tbl_itinerary SET day = ?, meals = ?, hotel_stat = ?, hotel = ?, activity = ?, poi = ?, optional = ? WHERE pack_code = ? AND itinerary_id = ?");
+                    $stmt->execute([$dayData['day'], $dayData['meals'], $dayData['hotel_stat'], $dayData['hotel'], $dayData['activity'], $dayData['poi'], $dayData['optional'], $packCode, $dayData['itinerary_id']]);
+                } else {
+                    $stmt = $conn->prepare("INSERT INTO tbl_itinerary (pack_code, day, meals, hotel_stat, hotel, activity, poi, optional) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                    $stmt->execute([$packCode, $dayData['day'], $dayData['meals'], $dayData['hotel_stat'], $dayData['hotel'], $dayData['activity'], $dayData['poi'], $dayData['optional']]);
+                }
+            }
 
-        $sqlPack = "UPDATE tbl_pack  SET(title = :title, locations = :locations, inclusion = :inclusion, exclusion = :exclusion) WHERE pack_code = :packCode";
-        $stmtPack = $conn->prepare($sqlPack);
-        $stmtPack->bindParam(':packCode', $packCode);
-        $stmtPack->bindParam(':title', $packTitle);
-        $stmtPack->bindParam(':locations', $route);
-        $stmtPack->bindParam(':inclusion', $include);
-        $stmtPack->bindParam(':exclusion', $exclude);
-
-        //copy this for tbl_flight and tbl_itinerary
-        if ($priceCardData !== null) {
-            // Loop through each price card data received from AJAX
+            // Update or insert price data
             foreach ($priceCardData as $priceData) {
-                // Check if the record already exists in tbl_price
                 $stmt = $conn->prepare("SELECT * FROM tbl_price WHERE pack_code = ? AND price_code = ?");
                 $stmt->execute([$packCode, $priceData['price_code']]);
-                $existingRecord = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                if ($existingRecord) {
-                    // Update the existing record
+                $priceRecord = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                if ($priceRecord) {
                     $stmt = $conn->prepare("UPDATE tbl_price SET currency = ?, price = ?, price_desc = ? WHERE pack_code = ? AND price_code = ?");
                     $stmt->execute([$priceData['currency'], $priceData['amount'], $priceData['price_desc'], $packCode, $priceData['price_code']]);
                 } else {
-                    // Insert a new record if the price code doesn't exist
-                    $stmt = $conn->prepare("INSERT INTO tbl_price (pack_code,  currency, price, price_desc) VALUES (?, ?, ?, ?)");
+                    $stmt = $conn->prepare("INSERT INTO tbl_price (pack_code, currency, price, price_desc) VALUES (?, ?, ?, ?)");
                     $stmt->execute([$packCode, $priceData['currency'], $priceData['amount'], $priceData['price_desc']]);
                 }
             }
+
+            // Update or insert flight data
+            foreach ($flightCardData as $flightData) {
+                $stmt = $conn->prepare("SELECT * FROM tbl_flight WHERE pack_code = ? AND flight_code = ?");
+                $stmt->execute([$packCode, $flightData['flight_code']]);
+                $flightRecord = $stmt->fetch(PDO::FETCH_ASSOC);
+                
+                if ($flightRecord) {
+                    $stmt = $conn->prepare("UPDATE tbl_flight SET travel_start = ?, travel_end = ?, flight_info = ? WHERE pack_code = ? AND flight_code = ?");
+                    $stmt->execute([$flightData['travel_start'], $flightData['travel_end'], $flightData['plane'], $packCode, $flightData['flight_code']]);
+                } else {
+                    $stmt = $conn->prepare("INSERT INTO tbl_flight (pack_code, travel_start, travel_end, flight_info) VALUES (?, ?, ?, ?)");
+                    $stmt->execute([$packCode, $flightData['travel_start'], $flightData['travel_end'], $flightData['plane']]);
+                }
+            }
+
+            $conn->commit();
             echo json_encode(array('success' => 'Data saved successfully'));
-        } else {
-            echo json_encode(array('error' => 'Error decoding price data'));
+        } catch (PDOException $e) {
+            $conn->rollBack();//in case of error, this removes any anomalous insert/update
+            echo json_encode(array('error' => 'Database error: ' . $e->getMessage()));
         }
     } else {
-        // Error message if data from AJAX is missing
-        echo json_encode(array('error' => 'Data not received at POST'));
+        echo json_encode(array('error' => 'Saved data not received or empty'));
     }
 } else {
-    // Error message if request method is not POST
     echo json_encode(array('error' => 'Invalid request method'));
 }
 ?>
